@@ -37,7 +37,6 @@ app.post('/login',
     res.redirect(`/users/${req.user.username}`);
   });
 
-
 // after all //
 app.use((req, res, next) => {
   next();
