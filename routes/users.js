@@ -1,19 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
+const dbClose = require('../lib/db').close;
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  // res.send('respond with a resource');
+const userController = require('../controllers/users');
 
-  res.json([
-  	{id:1, name:"Joe"},
-  	{id:2, name:"Den"},
-  	{id:3, name:"Lee"},
-  	{id:4, name:"Ann"},
-  	{id:5, name:"John"},
-  	{id:6, name:"Jane"},
-  ])
+router.get('/', userController.getAll);
 
+router.post('/', userController.add);
+
+router.get('/:id', userController.getById);
+
+router.put('/:id', userController.update);
+
+router.delete('/:id', userController.removeById);
+
+router.use(function (req, res, next) {
+  dbClose();
+  next();
 });
 
 module.exports = router;

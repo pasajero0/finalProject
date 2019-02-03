@@ -1,23 +1,38 @@
 {
-  "name": "finalproject",
+  "name": "finalProject",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "client": "cd client && npm start",
-    "dev": "concurrently \"npm run client\" \"npm run start\""
+    "test-db": "./node_modules/.bin/mocha ./test/lib/db/*.test.js --reporter spec",
+    "test-models": "./node_modules/.bin/mocha ./test/models/*.test.js --reporter spec",
+    "test": "./node_modules/.bin/mocha ./test/**/*.test.js --reporter spec",
+    "client": "cd ./finalProject_client && npm run client",
+    "server": "nodemon server.js -L",
+    "server-start": "concurrently \"npm run client\" \"npm run server\""
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0",
-    "cors": "^2.8.5"
+    "mongodb": "^3.1.13",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.7",
+    "npm-run-all": "^4.1.5",
+    "passport": "^0.4.0",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "mocha": "^5.2.0"
   }
 }
