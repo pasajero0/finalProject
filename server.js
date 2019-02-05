@@ -1,47 +1,60 @@
 require('dotenv').config();
+require('./config/passport');
 
-const logger = require('morgan');
-
+const morgan = require('morgan');
 const bodyParser = require('body-parser');
-
+const cookieParser = require('cookie-parser');
 const express = require('express');
+const session = require('express-session');
+const passport = require('passport');
+const FileStore = require('session-file-store')(session);
+const path = require('path');
+const flash = require('connect-flash');
+
+const customersRoutes = require('./routes/customers-routes');
 
 const app = express();
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
-const passport = require('passport');
-const usersRouter = require('./routes/users');
 
-// middlewares
-app.use(logger('dev'));
+require('./config/mongoose').connect();
+
+// middlewares //
+
+app.use(morgan('combined'));
+app.use(flash());
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(cookieParser());
+app.use(session({
+  store: new FileStore({}),
+  secret: process.env.SESSION_SECRET_KEY,
+  resave: true,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use(express.static('frontend/public'));
 // before all //
+
 app.use((req, res, next) => {
   next();
 });
 
-// nested routes
-app.get('/', (req, res) => {
-  res.send('HOMEPAGE');
-});
-app.use('/users', usersRouter);
-
-app.post('/login',
-  passport.authenticate('local'),
-  (req, res) => {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
-    res.redirect(`/users/${req.user.username}`);
-  });
+app.use('/customers', customersRoutes);
 
 // after all //
+
 app.use((req, res, next) => {
   next();
 });
 
 app.listen(port, hostname, () => {
+  if(process.env.NODE_ENV === 'development') {
   console.log(`Server running at http://${hostname}:${port}/`);
+}
 });
+
+
+module.exports = app;
