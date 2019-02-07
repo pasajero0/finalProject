@@ -6,6 +6,7 @@
 /.env
 /finalProject_client
 /sessions
+/~source
 
 # testing
 /coverage

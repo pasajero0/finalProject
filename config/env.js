@@ -1,4 +1,5 @@
 require('dotenv').config();
+const colors = require('colors');
 
 const required = {
   DB_MONGO_URL: null,
@@ -11,18 +12,20 @@ let ready = true;
 
 Object.keys(required).forEach((name) => {
   if (!process.env[name]) {
-    console.log(`Required environment variable ${name} is not set`);
+
+    console.log(`Required environment variable ${name} is not set`.cyan);
     if(required[name] === null){
-      console.log(`Please configure ${name} to run the server`);
+      console.log(`Please configure ${name} to run the server`.red);
       ready = false;
     }else{
       process.env[name] = required[name];
-      console.log(`The value of ${name} set to default value "${required[name]}"`);
+      console.log(`The value of ${name} set to default value "${required[name]}"`.green);
     }
   }
 });
 
 if (!ready) {
-  console.log('Please configure required environment variables to run the server');
+  // red output
+  console.log('Please configure required environment variables to run the server'.bgRed);
   process.exit();
 }
