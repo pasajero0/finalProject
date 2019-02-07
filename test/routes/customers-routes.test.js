@@ -1,17 +1,19 @@
-process.env.NODE_ENV = 'test';
-
+if (process.env.NODE_ENV !== 'test') {
+  console.log('run this script in NODE_ENV test mode only!');
+  console.log('try to run test:win for windows or test:lin for Linux!');
+  process.exit();
+}
 const mongoose = require('mongoose');
 const request = require('supertest');
 const chai = require('chai');
 
 const app = require('../../server');
-const { expect } = chai;
-
 const Customer = require('../../models/customer-model');
 const Counter = require('../../models/counter-model');
 
 mongoose.set('useCreateIndex', true);
 
+const {expect} = chai;
 const newPassword = 'qwe567m,.ert';
 const newCustomer = new Customer({
   _id: new mongoose.Types.ObjectId(),
@@ -35,7 +37,10 @@ const validCustomerData = {
     email: 'bobjohnson@gmail.com'
   }
 };
-const validAuthData = {login: validCustomerData.customer.login, password: validCustomerData.password};
+const validAuthData = {
+  login: validCustomerData.customer.login,
+  password: validCustomerData.password
+};
 
 // Auxiliary function.
 const authenticatedRequest = (loginDetails, done) => {
@@ -61,7 +66,7 @@ before((done) => {
 });
 
 after((done) => {
-  Customer.deleteMany({email: { $in: [validCustomerData.customer.email, newCustomer.email]}})
+  Customer.deleteMany({email: {$in: [validCustomerData.customer.email, newCustomer.email]}})
     .then(() => done())
     .catch(console.log);
 });

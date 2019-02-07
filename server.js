@@ -17,7 +17,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
 
-require('./config/mongoose').connect();
+const { connect } = require( './config/mongoose' );
 
 // middlewares //
 
@@ -50,11 +50,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(port, hostname, () => {
-  if(process.env.NODE_ENV === 'development') {
-  console.log(`Server running at http://${hostname}:${port}/`);
-}
-});
-
+connect()
+  .then(() => {
+    app.listen(port, hostname, () => {
+      if(process.env.NODE_ENV === 'development') {
+        console.log(`Server running at http://${hostname}:${port}/`);
+      }
+    });
+  })
+  .catch(console.log);
 
 module.exports = app;

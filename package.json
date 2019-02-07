@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test/**/*.test.js --reporter spec --exit",
     "client": "cd ./finalProject_client && npm run client",
     "server": "nodemon server.js -L",
-    "server-start": "concurrently \"npm run client\" \"npm run server\""
+    "server-start": "concurrently \"npm run client\" \"npm run server\"",
+
+    "test:win": "set NODE_ENV=test&& node_modules\\.bin\\mocha  ./test/**/*.test.js --reporter spec --exit",
+    "test:lin": "NODE_ENV=test ./node_modules/.bin/mocha ./test/**/*.test.js --reporter spec --exit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -44,6 +46,7 @@
     "eslint-plugin-react": "^7.12.4",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "sinon": "^7.2.3",
     "supertest": "^3.4.2"
   }
 }
