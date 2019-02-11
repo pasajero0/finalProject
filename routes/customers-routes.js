@@ -21,7 +21,7 @@ router.post('/auth', (req, res, next) => {
     }
     req.logIn(user, (err) => {
       if (err) { return next(err); }
-      res.status(200).json(response({ session_id: req.sessionID } , 'You have been logged in', 0));
+      res.status(200).json(response({}, 'You have been logged in', 0));
     });
   })(req, res, next);
 });

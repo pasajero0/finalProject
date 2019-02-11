@@ -1,5 +1,5 @@
 require('dotenv').config();
-const colors = require('colors');
+require('colors');
 
 const required = {
   DB_MONGO_URL: null,

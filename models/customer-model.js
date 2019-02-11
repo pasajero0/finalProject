@@ -33,29 +33,6 @@ const customerSchema = mongoose.Schema({
       message: props => `${props.value} is not a valid e-mail!`
     }
   },
-  login: {
-    type: String,
-    required: [true, 'Login is required'],
-    unique: true,
-    validate: {
-      isAsync: true,
-      validator: function loginValidator(v, cb) {
-        const data = this;
-        if (v.match(/\s/) !== null) {
-          cb(false);
-        } else {
-          const customer = mongoose.model('Customer', customerSchema);
-          customer.find({login: v, _id: {"$ne": data._id}})
-            .then((res) => {
-              cb(res.length === 0, 'This login already taken');
-            })
-            .catch(console.log);
-        }
-      },
-      // Default error message, overridden by 2nd argument to `cb()` above
-      message: props => `${props.value} can not contain spaces!`
-    }
-  },
   password: {
     type: String,
     required: [true, 'Password is required'],
@@ -70,22 +47,18 @@ const customerSchema = mongoose.Schema({
   },
   first_name: {
     type: String,
-    required: [true, 'First name is required'],
     minlength: [2, 'First name has to be longer']
   },
   last_name: {
     type: String,
-    required: [true, 'Last name is required'],
     minlength: [2, 'Last name has to be longer']
   }
 });
 
 customerSchema.options.toJSON = {
   transform: (doc, ret, options) => {
-    ret.customer_id = ret._id+'';
-    ret.customer_no = ret.number;
+    ret.id = ret._id+'';
     ret.creation_date = new Date(new Date().setTime(ret.creation_date)).toUTCString();
-    delete ret.number;
     delete ret.password;
     delete ret._id;
     delete ret.__v;

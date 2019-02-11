@@ -18,7 +18,6 @@ const newPassword = 'qwe567m,.ert';
 const newCustomer = new Customer({
   _id: new mongoose.Types.ObjectId(),
   password: newPassword,
-  login: 'john-smith',
   first_name: 'john',
   last_name: 'smith',
   email: 'johnsmith@gmail.om'
@@ -30,15 +29,12 @@ const newCounter = new Counter({
 });
 const validCustomerData = {
   password: 'anyPassword',
-  customer: {
-    login: 'bob',
-    first_name: 'bob',
-    last_name: 'johnson',
-    email: 'bobjohnson@gmail.com'
-  }
+  first_name: 'bob',
+  last_name: 'johnson',
+  email: 'bobjohnson@gmail.com'
 };
 const validAuthData = {
-  login: validCustomerData.customer.login,
+  email: validCustomerData.email,
   password: validCustomerData.password
 };
 
@@ -66,7 +62,7 @@ before((done) => {
 });
 
 after((done) => {
-  Customer.deleteMany({email: {$in: [validCustomerData.customer.email, newCustomer.email]}})
+  Customer.deleteMany({email: {$in: [validCustomerData.email, newCustomer.email]}})
     .then(() => done())
     .catch(console.log);
 });
@@ -92,12 +88,9 @@ describe('API Integration Tests', () => {
     it('should fail on missing required incoming data', (done) => {
       const emptyCustomerData = {
         password: '',
-        customer: {
-          login: '',
-          first_name: '',
-          last_name: '',
-          email: ''
-        }
+        first_name: '',
+        last_name: '',
+        email: ''
       };
       request(app)
         .post('/customers')
@@ -115,12 +108,9 @@ describe('API Integration Tests', () => {
     it('should fail on invalid incoming data', (done) => {
       const invalidCustomerData = {
         password: 'u',
-        customer: {
-          login: 'a',
-          first_name: 'a',
-          last_name: 'a',
-          email: 'c'
-        }
+        first_name: 'a',
+        last_name: 'a',
+        email: 'c'
       };
       request(app)
         .post('/customers')
@@ -136,7 +126,6 @@ describe('API Integration Tests', () => {
     });
 
     it('should add a customer', (done) => {
-
       request(app)
         .post('/customers')
         .send(validCustomerData)
@@ -148,12 +137,9 @@ describe('API Integration Tests', () => {
           expect(res.body.message).to.be.a('string').that.is.empty;
           let date = new Date(new Date(res.body.data.creation_date)).toUTCString();
           expect(res.body.data.creation_date).to.be.a('string', date);
-          expect(res.body.data.customer_no).to.be.a('string').to.have.lengthOf(10);
+          expect(res.body.data.number).to.be.a('string').to.have.lengthOf(10);
           expect(res.body.data.email).to.be.a('string', validCustomerData.email);
-          expect(res.body.data.login).to.be.a('string', validCustomerData.login);
-          expect(res.body.data.first_name).to.be.a('string', validCustomerData.first_name);
-          expect(res.body.data.last_name).to.be.a('string', validCustomerData.last_name);
-          expect(mongoose.Types.ObjectId.isValid(res.body.data.customer_id)).to.be.true;
+          expect(mongoose.Types.ObjectId.isValid(res.body.data.id)).to.be.true;
           done();
         });
 
@@ -190,10 +176,10 @@ describe('API Integration Tests', () => {
         });
     });
 
-    it('should fail to log in on incorrect password or username', (done) => {
+    it('should fail to log in on incorrect password or email', (done) => {
       request(app)
         .post('/customers/auth')
-        .send({login: 'foo', password: 'bar'})
+        .send({email: 'foo', password: 'bar'})
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -214,7 +200,6 @@ describe('API Integration Tests', () => {
           expect(res.body).to.have.all.keys(['data', 'message', 'success']);
           expect(res.body.success).to.be.a('boolean').to.be.true;
           expect(res.body.message).to.be.a('string').that.is.not.empty;
-          expect(res.body.data.session_id).to.be.a('string');
           done();
         });
     });
@@ -259,12 +244,9 @@ describe('API Integration Tests', () => {
             expect(res.body.message).to.be.a('string').that.is.empty;
             let date = new Date(new Date(res.body.data.creation_date)).toUTCString();
             expect(res.body.data.creation_date).to.be.a('string', date);
-            expect(res.body.data.customer_no).to.be.a('string').to.have.lengthOf(10);
+            expect(res.body.data.number).to.be.a('string').to.have.lengthOf(10);
             expect(res.body.data.email).to.be.a('string', validCustomerData.email);
-            expect(res.body.data.login).to.be.a('string', validCustomerData.login);
-            expect(res.body.data.first_name).to.be.a('string', validCustomerData.first_name);
-            expect(res.body.data.last_name).to.be.a('string', validCustomerData.last_name);
-            expect(mongoose.Types.ObjectId.isValid(res.body.data.customer_id)).to.be.true;
+            expect(mongoose.Types.ObjectId.isValid(res.body.data.id)).to.be.true;
             done();
           });
       });

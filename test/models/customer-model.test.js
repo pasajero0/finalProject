@@ -25,24 +25,6 @@ describe('Validations: ', () => {
         done();
       });
     });
-    it('should be invalid if login is empty', (done) => {
-      customer.validate((err) => {
-        expect(err.errors.login).to.exist;
-        done();
-      });
-    });
-    it('should be invalid if first_name is empty', (done) => {
-      customer.validate((err) => {
-        expect(err.errors.first_name).to.exist;
-        done();
-      });
-    });
-    it('should be invalid if last_name is empty', (done) => {
-      customer.validate((err) => {
-        expect(err.errors.last_name).to.exist;
-        done();
-      });
-    });
   });
 
   describe('Invalid fields', () => {
@@ -68,13 +50,6 @@ describe('Validations: ', () => {
         done();
       });
     });
-    it('should be failed if login is not valid', (done) => {
-      const customer = new Customer({login: ''});
-      customer.validate((err) => {
-        expect(err.errors.password).to.exist;
-        done();
-      });
-    });
     it('should be failed if first name is too short', (done) => {
       const customer = new Customer({first_name: '2'});
       customer.validate((err) => {
@@ -95,7 +70,6 @@ describe('Validations: ', () => {
     it('should be succeed with valid data', (done) => {
       const customer = new Customer({
         password: '098yuiRTY',
-        login: 'test-login',
         first_name: 'john',
         last_name: 'smith',
         email: 'uniqueemail@gmail.com'

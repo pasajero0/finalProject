@@ -4,11 +4,11 @@ const Customer = require('../models/customer-model');
 
 passport.use(new LocalStrategy(
   {
-    usernameField: 'login',
+    usernameField: 'email',
     passwordField: 'password'
   },
   function (username, password, done) {
-    Customer.findOne({login: username})
+    Customer.findOne({email: username})
       .then((customer) => {
         if (!customer) {
           return done(null, false, { message: 'Incorrect username.' });

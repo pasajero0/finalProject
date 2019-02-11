@@ -8,12 +8,7 @@ _ожидает:_
 ```javascript
 { 
   password,
-  customer:{ 
-    email, 
-    login, 
-    first_name, 
-    last_name
-  }
+  email
 }
 ```
 _отдает:_
@@ -56,12 +51,11 @@ _отдает:_
 {
     "data": {
         "email": "johnsmith35@gmail.com",
-        "login": "test5",
         "first_name": "john",
         "last_name": "smith",
         "creation_date": "Mon, 04 Feb 2019 21:07:35 GMT",
-        "customer_id": "5c58a9979a959b5f2c2fac56",
-        "customer_no": "00000003"
+        "id": "5c58a9979a959b5f2c2fac56",
+        "number": "00000003"
     },
     "message": "",
     "success": true
@@ -109,13 +103,11 @@ _отдает:_
 
 ```javascript
 {
-    "data": {
-        "session_id": "vueEdI4BYZA0GgFuEBVQXXTAN15QZAEh"
-    },
+    "data": {},
     "message": "You have been logged in",
     "success": true
 }
-```
+```git status
 
 ---
 
@@ -137,8 +129,8 @@ _отдает:_
         "first_name": "john",
         "last_name": "smith",
         "creation_date": "Mon, 04 Feb 2019 21:07:35 GMT",
-        "customer_id": "5c58a9979a959b5f2c2fac56",
-        "customer_no": "00000003"
+        "id": "5c58a9979a959b5f2c2fac56",
+        "number": "00000003"
     },
     "message": "",
     "success": true

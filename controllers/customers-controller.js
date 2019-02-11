@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
-const { response } = require('../lib/response');
+const {response} = require('../lib/response');
 const Customer = require('../models/customer-model');
 
-
+/**
+ * Convert mongoose error message to expected by front end
+ * @param src
+ */
 function mongooseErrorToResponse(src) {
   const data = {};
-  if(src.errors) {
+  if (src.errors) {
     const keys = Object.keys(src.errors);
-    if(keys.length > 0) {
+    if (keys.length > 0) {
       keys.forEach((v) => {
         data[v] = src.errors[v].message;
       });
@@ -16,19 +19,6 @@ function mongooseErrorToResponse(src) {
   return response(data, src.message, 1);
 }
 
-function formDataToCustomer(source) {
-  if (source && 'customer' in source && 'password' in source) {
-    return new Customer({
-      _id: new mongoose.Types.ObjectId(),
-      password: source.password,
-      email: source.customer.email,
-      login: source.customer.login,
-      first_name: source.customer.first_name,
-      last_name: source.customer.last_name
-    });
-  }
-  return null;
-}
 
 /**
  * Add new customer to database
@@ -37,12 +27,15 @@ function formDataToCustomer(source) {
  * @param next {Function}
  */
 exports.add = function addNewCustomer(req, res, next) {
-  const customer = formDataToCustomer(req.body);
-  if (customer === null) {
+  if (!req.body.email || !req.body.password) {
     res.status(200).json(response({}, 'Invalid incoming data', 1));
     next();
   } else {
-    customer.save()
+    (new Customer({
+      _id: new mongoose.Types.ObjectId(),
+      password: req.body.password,
+      email: req.body.email
+    })).save()
       .then((result) => {
         res.status(200).json(response(result.toJSON()));
         next();
@@ -102,10 +95,9 @@ exports.update = function updateCustomerData(req, res, next) {
     {
       $set: {
         password: req.body.password,
-        email: req.body.customer.email,
-        login: req.body.customer.login,
-        first_name: req.body.customer.first_name,
-        last_name: req.body.customer.last_name
+        email: req.body.email,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name
       }
     })
     .then((result) => {
