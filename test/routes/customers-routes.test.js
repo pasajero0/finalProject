@@ -52,7 +52,7 @@ const authenticatedRequest = (loginDetails, done) => {
     });
 };
 
-before((done) => {
+beforeAll((done) => {
   Customer.deleteMany({})
     .then(() => Counter.deleteMany())
     .then(() => newCounter.save())
@@ -61,7 +61,7 @@ before((done) => {
     .catch(console.log);
 });
 
-after((done) => {
+afterAll((done) => {
   Customer.deleteMany({email: {$in: [validCustomerData.email, newCustomer.email]}})
     .then(() => done())
     .catch(console.log);
