@@ -52,7 +52,13 @@ const customerSchema = mongoose.Schema({
   last_name: {
     type: String,
     minlength: [2, 'Last name has to be longer']
-  }
+  },
+  reset_password_token: {
+    type: String
+  },
+  reset_password_token_time: {
+    type: Number
+  },
 });
 
 customerSchema.options.toJSON = {

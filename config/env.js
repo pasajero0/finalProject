@@ -5,6 +5,13 @@ const required = {
   DB_MONGO_URL: null,
   DB_MONGO_URL_TEST: null,
   SESSION_SECRET_KEY: null,
+  MAIL_HOST: null,
+  MAIL_PORT: null,
+  MAIL_USER: null,
+  MAIL_PASS: null,
+  MAIL_FROM: null,
+  ETHERNAL_USER: null,
+  ETHERNAL_PASS: null,
   NODE_ENV: 'development'
 };
 

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-const {response} = require('../lib/response');
+const uniqid = require('uniqid');
+const { response } = require('../lib/response');
 const Customer = require('../models/customer-model');
+const { mail } = require('../services/mail');
 
 /**
  * Convert mongoose error message to expected by front end
@@ -19,7 +21,44 @@ function mongooseErrorToResponse(src) {
   return response(data, src.message, 1);
 }
 
-
+/**
+ * Send email to the customer with restore password link
+ * @param req {object}
+ * @param res {object}
+ * @param next {Function}
+ */
+exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMail(req, res, next) {
+  const token = uniqid();
+  Customer.updateOne({ email: req.body.email },
+    {
+      $set: {
+        reset_password_token: token,
+        reset_password_token_time: (new Date()).getTime() + (60 * 60 * 24 * 1000)
+      }
+    })
+    .then((result) => {
+      if (result.nModified > 0) {
+        mail(
+          process.env.MAIL_FROM,
+          req.body.email,
+          'Reset password link',
+          'body',
+          `<p>${token}</p>`
+        )
+          .then(() => {
+            res.status(200).json(response({}, 'Reset password link has been sent', 0));
+            next();
+          });
+      } else {
+        res.status(200).json(response({}, 'No valid entry found', 1));
+        next();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+      next();
+    });
+};
 /**
  * Add new customer to database
  * @param req {object}

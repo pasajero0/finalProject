@@ -150,3 +150,41 @@ _отдает:_
     "success": true
 }
 ```
+
+
+###POST /customers/reset-password
+
+проверяет электронный адрес. Если находит высылает писсьмо с ссылкой на изменение пароля
+
+_ожидает:_ 
+```javascript
+{ 
+  email
+}
+```
+_отдает:_
+
+в случае ошибки (не найден пользователь)
+
+**200** ответ
+
+```javascript
+{
+    "data": {},
+    "message": "No valid entry found",
+    "success": false
+}
+```
+
+в случае успеха
+
+**200** ответ
+
+
+```javascript
+{
+    "data": {},
+    "message": "Reset password link has been sent",
+    "success": true
+}
+```

@@ -2,43 +2,44 @@
  * https://nodemailer.com/about/
  */
 const nodemailer = require('nodemailer');
+const { NODE_ENV, MAIL_HOST, MAIL_PORT, MAIL_USER, MAIL_PASS, ETHERNAL_USER, ETHERNAL_PASS } = process.env;
 
-// async..await is not allowed in global scope, must use a wrapper
-async function main(){
+let mailConfig;
 
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  const account = await nodemailer.createTestAccount();
-
-  // create reusable transporter object using the default SMTP transport
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+if (NODE_ENV === 'production') {
+  mailConfig = {
+    host: MAIL_HOST,
+    port: MAIL_PORT,
+    secure: MAIL_PORT === 465, // true for 465, false for other ports
     auth: {
-      user: account.user, // generated ethereal user
-      pass: account.pass // generated ethereal password
+      user: MAIL_USER, // generated ethereal user
+      pass: MAIL_PASS // generated ethereal password
     }
-  });
-
-  // setup email data with unicode symbols
-  const mailOptions = {
-    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "bar@example.com, baz@example.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>" // html body
   };
-
-  // send mail with defined transport object
-  const info = await transporter.sendMail(mailOptions)
-
-  console.log("Message sent: %s", info.messageId);
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+} else {
+  // all emails are catched by https://ethereal.email
+  mailConfig = {
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+      user: ETHERNAL_USER,
+      pass: ETHERNAL_PASS
+    }
+  };
 }
 
-main().catch(console.error);
+// create reusable transporter object using the default SMTP transport
+const transporter = nodemailer.createTransport(mailConfig);
+
+// async..await is not allowed in global scope, must use a wrapper
+exports.mail = (from, to, subject, text, html) => {
+  // send mail with defined transport object
+  return transporter.sendMail({
+    from, to, subject, text, html
+  }).then((info) => {
+    if (NODE_ENV !== 'production') {
+      console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
+    }
+    return Promise.resolve(info);
+  });
+};

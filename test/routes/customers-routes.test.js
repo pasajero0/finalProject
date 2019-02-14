@@ -6,14 +6,13 @@ if (process.env.NODE_ENV !== 'test') {
 const mongoose = require('mongoose');
 const request = require('supertest');
 const chai = require('chai');
-
 const app = require('../../server');
 const Customer = require('../../models/customer-model');
 const Counter = require('../../models/counter-model');
 
 mongoose.set('useCreateIndex', true);
 
-const {expect} = chai;
+const { expect } = chai;
 const newPassword = 'qwe567m,.ert';
 const newCustomer = new Customer({
   _id: new mongoose.Types.ObjectId(),
@@ -52,22 +51,17 @@ const authenticatedRequest = (loginDetails, done) => {
     });
 };
 
-beforeAll((done) => {
-  Customer.deleteMany({})
-    .then(() => Counter.deleteMany())
-    .then(() => newCounter.save())
-    .then(() => newCustomer.save())
-    .then(() => done())
-    .catch(console.log);
-});
-
-afterAll((done) => {
-  Customer.deleteMany({email: {$in: [validCustomerData.email, newCustomer.email]}})
-    .then(() => done())
-    .catch(console.log);
-});
 
 describe('API Integration Tests', () => {
+
+  before((done) => {
+    Customer.deleteMany({})
+      .then(() => Counter.deleteMany())
+      .then(() => newCounter.save())
+      .then(() => newCustomer.save())
+      .then(() => done())
+      .catch(console.log);
+  });
 
   describe('POST /customers', () => {
 
@@ -179,7 +173,7 @@ describe('API Integration Tests', () => {
     it('should fail to log in on incorrect password or email', (done) => {
       request(app)
         .post('/customers/auth')
-        .send({email: 'foo', password: 'bar'})
+        .send({ email: 'foo', password: 'bar' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -251,6 +245,44 @@ describe('API Integration Tests', () => {
           });
       });
     });
+  });
+
+  describe('/POST customers/restore-password', () => {
+
+    it('should send E-mail with restore link if user exists', (done) => {
+      request(app)
+        .post('/customers/restore-password')
+        .send({ email: validAuthData.email })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.all.keys(['data', 'message', 'success']);
+          expect(res.body.success).to.be.a('boolean').to.be.true;
+          expect(res.body.message).to.be.a('string').that.is.not.empty;
+          done();
+        });
+    });
+
+    it('should failed with sending E-mail with restore link if user not exists', (done) => {
+      request(app)
+        .post('/customers/restore-password')
+        .send({ email: 'test@email.not' })
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.all.keys(['data', 'message', 'success']);
+          expect(res.body.success).to.be.a('boolean').to.be.false;
+          expect(res.body.message).to.be.a('string').that.is.not.empty;
+          done();
+        });
+    });
+
+  });
+
+  after((done) => {
+    Customer.deleteMany({ email: { $in: [validCustomerData.email, newCustomer.email] } })
+      .then(() => done())
+      .catch(console.log);
   });
 
 });
