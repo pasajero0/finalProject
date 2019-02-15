@@ -247,38 +247,6 @@ describe('API Integration Tests', () => {
     });
   });
 
-  describe('/POST customers/restore-password', () => {
-
-    it('should send E-mail with restore link if user exists', (done) => {
-      request(app)
-        .post('/customers/restore-password')
-        .send({ email: validAuthData.email })
-        .end((err, res) => {
-          expect(res.statusCode).to.equal(200);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.all.keys(['data', 'message', 'success']);
-          expect(res.body.success).to.be.a('boolean').to.be.true;
-          expect(res.body.message).to.be.a('string').that.is.not.empty;
-          done();
-        });
-    });
-
-    it('should failed with sending E-mail with restore link if user not exists', (done) => {
-      request(app)
-        .post('/customers/restore-password')
-        .send({ email: 'test@email.not' })
-        .end((err, res) => {
-          expect(res.statusCode).to.equal(200);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.all.keys(['data', 'message', 'success']);
-          expect(res.body.success).to.be.a('boolean').to.be.false;
-          expect(res.body.message).to.be.a('string').that.is.not.empty;
-          done();
-        });
-    });
-
-  });
-
   after((done) => {
     Customer.deleteMany({ email: { $in: [validCustomerData.email, newCustomer.email] } })
       .then(() => done())

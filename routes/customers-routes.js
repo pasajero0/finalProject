@@ -43,12 +43,8 @@ router.get('/logout', (req, res) => {
   res.status(200).json(response({}, 'You have been logged out', 0));
 });
 
-router.post('/restore-password', customerController.sendRestorePasswordMail);
-
-router.post('/is-authenticated',  (req, res, next) => {
+router.post('/is-authenticated',  (req, res) => {
   res.status(200).json(response({ isAuthenticated: !!req.user }, '', 0));
 });
-
-//router.post('/restore-password', customerController.sendRestorePasswordMail);
 
 module.exports = router;

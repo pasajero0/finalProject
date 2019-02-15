@@ -12,7 +12,7 @@ const path = require('path');
 const flash = require('connect-flash');
 
 const customersRoutes = require('./routes/customers-routes');
-
+const passwordRoutes = require('./routes/password-routes');
 const app = express();
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
@@ -44,6 +44,7 @@ app.use((req, res, next) => {
 
 app.use('/customers', customersRoutes);
 
+app.use('/password', passwordRoutes);
 // after all //
 
 app.use((req, res, next) => {

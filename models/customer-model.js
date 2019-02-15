@@ -84,8 +84,8 @@ function addCreatedDate(next) {
   const customer = this;
   if (!customer.creation_date) {
     customer.creation_date = new Date().getTime();
-    next();
   }
+  next();
 }
 
 function addLeadingZeros(n, length = 10) {

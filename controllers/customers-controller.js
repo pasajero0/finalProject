@@ -22,44 +22,6 @@ function mongooseErrorToResponse(src) {
 }
 
 /**
- * Send email to the customer with restore password link
- * @param req {object}
- * @param res {object}
- * @param next {Function}
- */
-exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMail(req, res, next) {
-  const token = uniqid();
-  Customer.updateOne({ email: req.body.email },
-    {
-      $set: {
-        reset_password_token: token,
-        reset_password_token_time: (new Date()).getTime() + (60 * 60 * 24 * 1000)
-      }
-    })
-    .then((result) => {
-      if (result.nModified > 0) {
-        mail(
-          process.env.MAIL_FROM,
-          req.body.email,
-          'Reset password link',
-          'body',
-          `<p>${token}</p>`
-        )
-          .then(() => {
-            res.status(200).json(response({}, 'Reset password link has been sent', 0));
-            next();
-          });
-      } else {
-        res.status(200).json(response({}, 'No valid entry found', 1));
-        next();
-      }
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err });
-      next();
-    });
-};
-/**
  * Add new customer to database
  * @param req {object}
  * @param res {object}
@@ -92,17 +54,17 @@ exports.add = function addNewCustomer(req, res, next) {
  * @param next {Function}
  */
 exports.findById = function getCustomerById(req, res, next) {
-  Customer.find({_id: new mongoose.Types.ObjectId(req.params.id)})
+  Customer.find({ _id: new mongoose.Types.ObjectId(req.params.id) })
     .then((result) => {
       if (result.length > 0) {
-        res.status(200).json(response(result));
+        res.status(200).json(response(result[0]));
       } else {
         res.status(404).json(response({}, 'No valid entry found', 1));
       }
       next();
     })
     .catch((err) => {
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
       next();
     });
 };
@@ -119,7 +81,7 @@ exports.find = function getAllCustomers(req, res, next) {
       next();
     })
     .catch((err) => {
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
       next();
     });
 };
@@ -130,10 +92,9 @@ exports.find = function getAllCustomers(req, res, next) {
  * @param next {Function}
  */
 exports.update = function updateCustomerData(req, res, next) {
-  Customer.update({_id: req.body.id},
+  Customer.updateOne({ _id: req.body.id },
     {
       $set: {
-        password: req.body.password,
         email: req.body.email,
         first_name: req.body.first_name,
         last_name: req.body.last_name
@@ -148,7 +109,7 @@ exports.update = function updateCustomerData(req, res, next) {
       next();
     })
     .catch((err) => {
-      res.status(500).json({error: err});
+      res.status(500).json({ error: err });
       next();
     });
 };
