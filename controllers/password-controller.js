@@ -39,8 +39,8 @@ exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMa
           process.env.MAIL_FROM,
           req.body.email,
           'Reset password link',
-          'body',
-          `<p>${token}</p>`
+          `/restore-password/${token}`,
+          `<p>/restore-password/${token}</p>`
         )
           .then(() => {
             res.status(200).json(response({}, 'Reset password link has been sent', 0));
