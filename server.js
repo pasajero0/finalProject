@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(cookieParser());
 app.use(session({
-  store: new FileStore({}),
+  store: new FileStore({retries: 0}),
   secret: process.env.SESSION_SECRET_KEY,
   resave: true,
   saveUninitialized: false

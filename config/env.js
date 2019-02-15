@@ -10,8 +10,6 @@ const required = {
   MAIL_USER: null,
   MAIL_PASS: null,
   MAIL_FROM: null,
-  ETHERNAL_USER: null,
-  ETHERNAL_PASS: null,
   NODE_ENV: 'development'
 };
 

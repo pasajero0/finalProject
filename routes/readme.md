@@ -151,8 +151,9 @@ _отдает:_
 }
 ```
 
+---
 
-###POST /customers/reset-password
+###POST /password/send-token
 
 проверяет электронный адрес. Если находит высылает писсьмо с ссылкой на изменение пароля
 
@@ -185,6 +186,45 @@ _отдает:_
 {
     "data": {},
     "message": "Reset password link has been sent",
+    "success": true
+}
+```
+
+---
+
+###POST /password/save
+
+проверяет токен, электронный адрес. В случае успеха сохраняет новый праоль
+
+_ожидает:_ 
+```javascript
+{ 
+  email, token, password
+}
+```
+_отдает:_
+
+в случае ошибки (не найден пользователь или неверный токен)
+
+**200** ответ
+
+```javascript
+{
+    "data": {},
+    "message": "Token is invalid or outdated",
+    "success": false
+}
+```
+
+в случае успеха
+
+**200** ответ
+
+
+```javascript
+{
+    "data": {},
+    "message": "New password has been saved",
     "success": true
 }
 ```
