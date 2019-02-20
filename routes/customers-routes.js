@@ -16,7 +16,7 @@ router.post('/auth', (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      res.status(200).json(response({}, info.message, 1));
+      res.status(200).json(response(info.data, info.message, 1));
       return next();
     }
     req.logIn(user, (err) => {

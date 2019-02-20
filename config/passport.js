@@ -11,10 +11,16 @@ passport.use(new LocalStrategy(
     Customer.findOne({email: username})
       .then((customer) => {
         if (!customer) {
-          return done(null, false, { message: 'Incorrect username.' });
+          return done(null, false, {
+            message: 'The email is not registered.',
+            data: { email: 'The email is not registered' }
+          });
         }
         if (!customer.comparePassword(password)) {
-          return done(null, false, { message: 'Incorrect password.' });
+          return done(null, false, {
+            message: 'Incorrect password.',
+            data: { password: 'Incorrect password' }
+          });
         }
         return done(null, customer);
       })

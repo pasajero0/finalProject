@@ -14,6 +14,7 @@ exports.find = function getAllProducts(req, res, next) {
   };
 
   Product.find().skip(data.perPage * ( data.page - 1 )).limit(data.perPage)
+  //.project({ item: 1, status: 1, 'size.uom': 1 })
     .then((records) => {
       data.records = records;
       return Product.find().count();
