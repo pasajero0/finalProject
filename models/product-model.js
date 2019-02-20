@@ -5,6 +5,12 @@ const productSchema = mongoose.Schema({
   added: {
     type: Number
   },
+  price: {
+    type: Number
+  },
+  specialPrice: {
+    type: Number
+  },
   company: {
     type: String
   },
@@ -39,6 +45,9 @@ const productSchema = mongoose.Schema({
     type: Boolean
   },
   isAvailable: {
+    type: Boolean
+  },
+  isOnSale: {
     type: Boolean
   },
   rate: {
