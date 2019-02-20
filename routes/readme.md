@@ -107,7 +107,7 @@ _отдает:_
     "message": "You have been logged in",
     "success": true
 }
-```git status
+```
 
 ---
 
