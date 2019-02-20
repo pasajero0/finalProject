@@ -12,6 +12,7 @@ const path = require('path');
 const flash = require('connect-flash');
 
 const customersRoutes = require('./routes/customers-routes');
+const productsRoutes = require('./routes/products-routes');
 const passwordRoutes = require('./routes/password-routes');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -43,7 +44,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/customers', customersRoutes);
-
+app.use('/products', productsRoutes);
 app.use('/password', passwordRoutes);
 // after all //
 
