@@ -2,32 +2,33 @@ const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
   _id: mongoose.Types.ObjectId,
+  slug: {
+    type: String,
+    required:[true, 'The slug is required'],
+    unique: true
+  },
   added: {
     type: Number
   },
-  price: {
-    type: Number
+  prices: {
+    retail: {
+      type: Number
+    },
+    sale:{
+      type: Number
+    }
   },
-  specialPrice: {
-    type: Number
-  },
-  company: {
+  brand: {
     type: String
   },
   country: {
     type: String
   },
-  size: {
-    type: String
-  },
-  color: {
-    type: String
-  },
   gender: {
     type: String
   },
-  category: {
-    type: String
+  departmentsIds: {
+    type: Array
   },
   name: {
     type: String
@@ -35,8 +36,8 @@ const productSchema = mongoose.Schema({
   description: {
     type: String
   },
-  picture: {
-    type: String
+  pictures: {
+    type: Array
   },
   isBrandNew: {
     type: Boolean

@@ -255,12 +255,10 @@ _отдает:_
             {
                 "company": "Geofarm",
                 "country": "Ghana",
-                "price": 345,
-                "salePrice": 345,
-                "size": "md",
-                "color": "blue",
-                "gender": "man",
-                "category": "dress",
+                "prices":{
+                  "retail":890,
+                  "sale":890
+                },
                 "name": "Ad excepteur nulla occaecat in nostrud aute officia est et est sit exercitation in.",
                 "description": "Sunt est labore sit cupidatat laborum adipisicing eiusmod. Dolore mollit est duis ipsum sint dolor fugiat est dolor occaecat magna reprehenderit qui. Quis pariatur consequat Lorem enim reprehenderit non.\n\nCillum tempor dolore velit consectetur est cupidatat dolore. Aliqua elit dolore qui irure reprehenderit do et sint ex sunt. Eu incididunt ad duis id laborum. Anim anim tempor velit et do veniam reprehenderit aliqua velit labore nostrud ad est ullamco.",
                 "isBrandNew": false,
@@ -268,7 +266,7 @@ _отдает:_
                 "isAvailable": false,
                 "isOnSale": false,
                 "rate": 5,
-                "picture": "http://placehold.it/32x32",
+                "pictures": ["http://placehold.it/32x32"],
                 "added": "Sun, 23 Sep 2018 08:59:43 GMT",
                 "id": "5c6d25767534317e7e3c48fd"
             },
@@ -281,4 +279,39 @@ _отдает:_
     "success": true
 }
 ```
+
+---
+
+###GET /departments
+
+получает список отделов 
+
+_отдает:_
+
+**200** ответ
+
+
+```javascript
+{
+    "data": {
+        "records": [
+            {
+              "_id":603,
+              "name":"dress",
+              "slug":"woman-dress",
+              "parent":602,
+              "position":0,
+              "filters":{
+                "country":["Slovak Republic"],
+                "brand":["Techade"],
+                "size":["s","m","l"],
+                "color":["yellow","green","blue"]}},
+            ...
+        ]
+    },
+    "message": "",
+    "success": true
+}
+```
+
 

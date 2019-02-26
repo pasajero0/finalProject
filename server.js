@@ -14,6 +14,7 @@ const flash = require('connect-flash');
 const customersRoutes = require('./routes/customers-routes');
 const productsRoutes = require('./routes/products-routes');
 const passwordRoutes = require('./routes/password-routes');
+const departmentsRoutes = require('./routes/departments-routes');
 const app = express();
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
@@ -44,7 +45,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/customers', customersRoutes);
+app.use('/departments', departmentsRoutes);
 app.use('/products', productsRoutes);
+
 app.use('/password', passwordRoutes);
 // after all //
 

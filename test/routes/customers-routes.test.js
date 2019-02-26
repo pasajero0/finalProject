@@ -163,7 +163,7 @@ describe('API Integration Tests', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
-          expect(res.body).to.have.all.keys(['data', 'message', 'success']);
+          expect(res.body).to.have.all.keys(['message', 'success']);
           expect(res.body.success).to.be.a('boolean').to.be.false;
           expect(res.body.message).to.be.an('string').that.is.not.empty;
           done();
