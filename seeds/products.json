@@ -1,41 +1,12 @@
 [
   {
-    "brand": "Techade",
-    "country": "Slovak Republic",
-    "prices":{
-      "retail":890,
-      "sale":890
-    },
-    "gender": "woman",
-    "category": "dress",
-    "name": "Mollit dolor nisi quis excepteur laborum cupidatat.",
-    "description": "Laboris enim enim ad laborum voluptate ullamco minim laboris ullamco eiusmod tempor excepteur labore ex. Elit cillum laboris dolor mollit non occaecat quis consectetur ut duis voluptate. Anim minim et consectetur commodo labore ea nisi velit. Lorem aute magna exercitation mollit reprehenderit aute eu. Deserunt excepteur dolore labore aliqua adipisicing ipsum laborum sit. Aliquip aute do culpa exercitation do ut tempor fugiat ullamco.\n\nPariatur velit minim id laborum ut est eiusmod eu do est laborum pariatur. Minim velit exercitation non ut. Laboris labore cillum dolor sunt excepteur eu.\n\nVoluptate nostrud nostrud reprehenderit incididunt consequat eiusmod duis proident in sunt fugiat aute deserunt. Labore consectetur deserunt deserunt officia labore veniam commodo deserunt reprehenderit proident commodo. Adipisicing in nostrud officia quis reprehenderit amet qui nisi elit aliquip reprehenderit ex. Sint minim commodo eiusmod duis commodo reprehenderit amet pariatur velit laboris labore sint. Deserunt proident sit exercitation ad non occaecat.",
-    "isBrandNew": true,
-    "isPopular": true,
-    "isAvailable": true,
-    "isOnSale": true,
-    "rate": 5,
-    "pictures": ["http://placehold.it/32x32"],
-    "variants":[
-      { "size":"s", "color":"yellow"},
-      { "size":"s", "color":"green"},
-      { "size":"s", "color":"blue"},
-      { "size":"m", "color":"yellow"},
-      { "size":"m", "color":"green"},
-      { "size":"m", "color":"blue"},
-      { "size":"l", "color":"yellow"},
-      { "size":"l", "color":"green"},
-      { "size":"l", "color":"blue"}
-    ]
-  },
-  {
-    "brand": "Ecco",
-    "country": "Ukraine",
+    "brand": "Massimo Duti",
+    "country": "Spain",
     "gender": "man",
-    "category": "shoeses",
-    "name": "Excepteur laborum cupidatat.",
-    "description": "Eiusmod tempor excepteur labore ex. Elit cillum laboris dolor mollit non occaecat quis consectetur ut duis voluptate. Anim minim et consectetur commodo labore ea nisi velit. Lorem aute magna exercitation mollit reprehenderit aute eu. Deserunt excepteur dolore labore aliqua adipisicing ipsum laborum sit. Aliquip aute do culpa exercitation do ut tempor fugiat ullamco.\n\nPariatur velit minim id laborum ut est eiusmod eu do est laborum pariatur. Minim velit exercitation non ut. Laboris labore cillum dolor sunt excepteur eu.\n\nVoluptate nostrud nostrud reprehenderit incididunt consequat eiusmod duis proident in sunt fugiat aute deserunt. Labore consectetur deserunt deserunt officia labore veniam commodo deserunt reprehenderit proident commodo. Adipisicing in nostrud officia quis reprehenderit amet qui nisi elit aliquip reprehenderit ex. Sint minim commodo eiusmod duis commodo reprehenderit amet pariatur velit laboris labore sint. Deserunt proident sit exercitation ad non occaecat.",
-    "pictures": ["http://placehold.it/32x32"],
+    "category": "clothing",
+    "name": "Travel suit slim fit striped wool blazer",
+    "description": "Striped suit blazer in comfort wool, made with the utmost care by the true master tailors of our seasoned brand. Our Travel Suit selection is made from exceptionally wearable fabric that follows and adapts to the movements of the body, ensuring complete comfort. They are designed for a modern man who is always on the move between work meetings and informal gatherings. These garments guarantee maximum comfort and impeccable style at all times. The Italian fabrics used stand out for their excellent technical qualities and the high twist technology of their threads, providing great resistance to creasing and fast recovery. At the same time, these fabrics have a natural stretch, allowing great freedom of movement and comfort. The suits also have a water repellent finish which is ideal for rainy climates. Featuring a slim fit, notched lapel collar with buttonhole, custom undercollar, two-button fastening, two side flap pockets, one besom pocket at the chest, long sleeves with four-button cuffs, two back vents, lining and several inside pockets. The back length for size 50 is 74 cm. Made in Egypt.",
+    "pictures": ["2049298401_2_3_16.jpg", "2049298401_1_1_16.jpg", "2049298401_2_1_16.jpg", "2049298401_2_2_16.jpg"],
     "variants":[
       { "size":"42", "color":"black"},
       { "size":"42", "color":"brown"},
@@ -46,6 +17,845 @@
       { "size":"43", "color":"black"},
       { "size":"43", "color":"brown"},
       { "size":"43", "color":"blue"}
+    ]
+  },
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Travel suit slim fit plain wool city trousers",
+    "description": "Plain suit trousers in Italian comfort wool, made with the utmost care by the true master tailors of our seasoned brand. Our Travel Suit selection is made from exceptionally wearable fabric that follows and adapts to the movements of the body, ensuring complete comfort. They are designed for a modern man who is always on the move between work meetings and informal gatherings. These garments guarantee maximum comfort and impeccable style at all times. The Italian fabrics used stand out for their excellent technical qualities and the high-twist technology of their threads, providing great resistance to creasing and fast recovery. At the same time, these fabrics have a natural stretch, allowing great freedom of movement and comfort. Featuring a city slim fit, zip fly and button fastening, two side pockets, one coin pocket, two rear buttoned welt pockets, belt loops and lining. The ankle width for size 42 is 18 cm. Made in Portugal.",
+    "pictures": ["0094315420_1_1_16.jpg", "0094315420_2_1_16.jpg", "0094315420_2_2_16.jpg", "0094315420_2_3_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Textured mouliné cotton sweater",
+    "description": "Textured mouliné sweater made of 100% cotton. Featuring a straight fit, a round neckline, long sleeves and ribbed trims.",
+    "pictures": ["0919453401_2_1_16.jpg", "0919453401_2_2_16.jpg", "0919453401_2_3_16.jpg", "0919453401_2_6_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Slim fit textured weave wool blazer",
+    "description": "Textured blazer. Features a slim fit, a notched lapel collar with buttonhole, two-button fastening, three side patch pockets, long sleeves with four-button cuffs, two back vents, lining and several inside pockets. The back length for size 50 is 74 cm.",
+    "pictures": ["2003202710_1_1_16.jpg", "2003202710_2_1_16.jpg", "2003202710_2_3_16.jpg", "2003202710_2_5_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Slim fit stone wash jeans",
+    "description": "Stonewashed jeans made of comfort cotton. Featuring a slim fit, a zip fly and contrast top button fastening, five pockets, decorative appliqué and belt loops.",
+    "pictures": ["0048118405_1_1_16.jpg", "0048118405_2_1_16.jpg", "0048118405_2_4_16.jpg", "0048118405_2_5_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Pull&Bear",
+    "country": "Italy",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Slim fit vintage jeans",
+    "description": "Vintage finish jeans made of comfort cotton. Featuring a slim fit, zip fly and contrast button fastening, a five-pocket design and belt loops.",
+    "pictures": ["0053153405_1_1_16.jpg", "0053153405_2_1_16.jpg", "0053153405_2_2_16.jpg", "0053153405_2_3_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Pull&Bear",
+    "country": "Italy",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Regular fit stone wash jeans",
+    "description": "Regular fit stone wash jeans made from comfort cotton. Featuring a zip fly and contrasting button fastening, five pockets and belt loops.",
+    "pictures": ["0054154405_1_1_16.jpg", "0054154405_2_1_16.jpg", "0054154405_2_2_16.jpg", "0054154405_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Textured weave cotton cardigan",
+    "description": "Textured cardigan made of 100% cotton. Featuring a straight fit, a high neck, two-way zip fastening, long sleeves and ribbed trims.",
+    "pictures": ["0920445401_2_1_16.jpg", "0920445686_1_1_16.jpg", "0920445686_2_5_16.jpg", "0920445710_2_3_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Slim fit checked cotton/linen shirt",
+    "description": "Checked shirt in Italian cotton and linen, made with the utmost care by the true masters of our seasoned brand. The Slim fit lends extraordinary adaptability, flattering any man’s figure. Features an Oxford collar, front button-up fastening and long sleeves with rounded, buttoned cuffs.",
+    "pictures": ["0124244403_1_0_16.jpg", "0124244403_2_2_16.jpg", "0124244403_2_3_16.jpg", "0124244403_2_7_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Spain",
+    "gender": "man",
+    "category": "clothing",
+    "name": "Slim fit check linen blazer",
+    "description": "Check blazer. Features a slim fit, a notched lapel collar with buttonhole, two-button fastening, two side flap pockets, a besom pocket at the chest, long sleeves with four-button cuffs, a double back vent, lining and several inside pockets. The back length for size 50 is 74 cm.",
+    "pictures": ["2011219710_1_1_16.jpg", "2011219710_2_1_16.jpg", "2011219710_2_4_16.jpg", "2011219710_2_6_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Italy",
+    "gender": "women",
+    "category": "clothing",
+    "name": "100% linen trench coat with belt",
+    "description": "100% linen open-style trench coat with belt. Features an A-line silhouette, a notched lapel collar, two side pockets, long sleeves, a back vent, belt loops and lining. The back length for size M is 120.9 cm.",
+    "pictures": ["6441691711_1_1_16.jpg", "6441691711_2_1_16.jpg", "6441691711_2_2_16.jpg", "6441691711_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Plain linen flared trousers",
+    "description": "Plain, flared trousers. Featuring a hook-and-eye closure and zip fly hidden by a placket, two side pockets, two welt pockets on the back and belt loops.",
+    "pictures": ["5042687717_1_1_16.jpg", "5042687717_2_2_16.jpg", "5042687717_2_3_16.jpg", "5042687717_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Belted nappa biker jacket",
+    "description": "Nappa biker jacket with epaulettes and a belt. Featuring a slim fit, a notched lapel collar, zip fastening, two side zip pockets, long sleeves, belt loops and lining. The back length for size M is 50.5 cm.",
+    "pictures": ["4711711711_1_1_16.jpg", "4711711711_2_1_16.jpg", "4711711711_2_2_16.jpg", "4711711711_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Pull&Bear",
+    "country": "Italy",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Buttoned suede dress",
+    "description": "Suede dress made of goatskin leather. Featuring a straight fit, round neck, front button fastening, long sleeves with two-button cuffs and a rounded hem with side vents. The back length for size M is 99.5 cm.",
+    "pictures": ["4715715507_2_1_16.jpg", "4715715507_2_3_16.jpg", "4715715507_2_4_16.jpg", "4715715507_2_5_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Pull&Bear",
+    "country": "Italy",
+    "gender": "women",
+    "category": "clothing",
+    "name": "100% cashmere jogging fit trousers",
+    "description": "Plain trousers made of 100% cashmere. Featuring a jogging fit, elastic drawstring waist, two side patch pockets and ribbed trims.",
+    "pictures": ["5019647715_1_1_16.jpg", "5019647715_2_1_16.jpg", "5019647715_2_2_16.jpg", "5019647715_2_3_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Wool wrap skirt",
+    "description": "Wrap skirt with a contrast button detail. Featuring an A-line silhouette, side zip fastening and lining. The garment length for size 38 is 78 cm.",
+    "pictures": ["5226904802_1_1_16.jpg", "5226904802_2_1_16.jpg", "5226904802_2_2_16.jpg", "5226904802_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Slim straight fit jeans with topstitching",
+    "description": "Five-pocket jeans with topstitching detail. Featuring a slim straight fit, high waist, zip fly and logo button fastening and belt loops.",
+    "pictures": ["5050583712_1_1_16.jpg", "5050583712_2_1_16.jpg", "5050583712_2_2_16.jpg", "5050583712_2_3_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"white"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"white"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"white"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Skinny mid-rise satin trousers",
+    "description": "Mid-rise satin trousers with a five-pocket design. Featuring a skinny fit, zip fly and logo button fastening, a decorative appliqué and belt loops. JOIN LIFE Care for fiber: TENCEL®Lyocell. TENCEL® is made of wood sourced from sustainably managed forests that guarantee reforestation.",
+    "pictures": ["5065536638_1_1_16.jpg", "5065536638_2_1_16.jpg", "5065536638_2_2_16.jpg", "5065536638_2_3_16.jpg"],
+    "variants":[
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"40", "color":"black"},
+      { "size":"40", "color":"brown"},
+      { "size":"40", "color":"blue"},
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Bershka",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Striped collared dress",
+    "description": "Striped dress with decorative collar. Features an A-line silhouette, Kent collar, front button fastening and long sleeves with buttoned cuffs. The garment length for size 38 is 124 cm.",
+    "pictures": ["6648818800_1_1_16.jpg", "6648818800_2_1_16.jpg", "6648818800_2_2_16.jpg", "6648818800_2_3_16.jpg"],
+    "variants":[
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"40", "color":"black"},
+      { "size":"40", "color":"brown"},
+      { "size":"40", "color":"blue"},
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "clothing",
+    "name": "Slim fit knit herringbone blazer",
+    "description": "Herringbone knit blazer. Featuring a slim fit, pointed lapel collar, single-button fastening, two side flap pockets, long sleeves and lining. The back length for size 38 is 63.5 cm.",
+    "pictures": ["6021915800_1_1_16.jpg", "6021915800_2_1_16.jpg", "6021915800_2_2_16.jpg", "6021915800_2_3_16.jpg"],
+    "variants":[
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"grey"},
+      { "size":"40", "color":"black"},
+      { "size":"40", "color":"brown"},
+      { "size":"40", "color":"grey"},
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"grey"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Blue contrasting leather sneakers",
+    "description": "Combined blue split suede and nappa leather trainers with combined cowhide leather and cotton lining. Featuring a lightweight two-tone blue and ecru sole, contrast heel stabilizer and matching laces.",
+    "pictures": ["4100022400_2_7_16.jpg", "4100022400_2_2_16.jpg", "4100022400_1_1_16.jpg", "4100022400_2_5_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "White leather trainers",
+    "description": "White tumbled leather trainers. They feature leather lining and insoles and two-tone rubber soles.",
+    "pictures": ["7100322001_6_1_16.jpg", "7100322001_2_5_16.jpg", "7100322001_2_4_16.jpg", "7100322001_2_6_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"white"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"white"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"white"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Casual combined split suede shoes",
+    "description": "Casual shoes made of navy blue split suede and brown nappa leather. Featuring navy blue laces and leather lining and insoles.",
+    "pictures": ["7703322400_6_1_16.jpg", "7703322400_2_5_16.jpg", "7703322400_2_2_16.jpg", "7703322400_2_1_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"white"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"white"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"white"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Black nappa leather stretch ankle boots",
+    "description": "Black nappa leather ankle boots with elastic side tabs for slipping on with ease. Featuring a matching pull tab, combined leather and fabric lining, leather insoles and glued and stitched soles.",
+    "pictures": ["4010022800_6_1_16.jpg", "4010022800_2_4_16.jpg", "4010022800_2_3_16.jpg", "4010022800_1_1_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Italy",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Tan split suede casual shoes",
+    "description": "Casual shoe made of tan split suede with broguing and serrated detailing. Topstitching and laces in the same shade. Featuring a combined leather and fabric lining, leather insoles and lightweight soles with a lined detail at the heel and tan welt.",
+    "pictures": ["4212022709_2_7_16.jpg", "4212022709_2_5_16.jpg", "4212022709_2_2_16.jpg", "4212022709_1_1_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Pull&Bear",
+    "country": "England",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Blue split suede leather loafers",
+    "description": "Blue split suede loafers with matching tassels. Featuring hand stitching on the vamp and leather lining and insoles.",
+    "pictures": ["4402022400_2_7_16.jpg", "4402022400_2_5_16.jpg", "4402022400_2_1_16.jpg", "4402022400_1_1_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Ecco",
+    "country": "England",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Black leather smart shoes",
+    "description": "Black leather smart dress shoes. Leather sole and upper.",
+    "pictures": ["4200022800_2_7_16.jpg", "4200022800_2_6_16.jpg", "4200022800_2_3_16.jpg", "4200022800_2_2_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "England",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Smart tan leather shoes",
+    "description": "Smart tan shoes made of brushed nappa leather. Featuring broguing on the toe and sides, an artisanal brushed finish and leather lining and insoles.",
+    "pictures": ["4202022709_2_3_16.jpg", "4202022709_2_4_16.jpg", "4202022709_1_1_16.jpg", "4202022709_2_5_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Combined blue sneakers",
+    "description": "Nubuck, split suede and nappa leather trainers in contrast blue and grey tones with several tan nappa leather details. The contrast cotton details have a raised pattern. Featuring fabric lining, leather insoles and monochrome EVA soles.",
+    "pictures": ["4121022400_6_1_16.jpg", "4121022400_2_3_16.jpg", "4121022400_2_2_16.jpg", "4121022400_1_1_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "man",
+    "category": "shoes",
+    "name": "Blue nappa leather casual shoes",
+    "description": "Casual shoes made of blue tumbled nappa leather with a matching leather piece in the back. Featuring fabric lining with leather trims, leather insoles and contrasting lightweight beige soles.",
+    "pictures": ["4709322400_2_3_16.jpg", "4709322400_2_2_16.jpg", "4709322400_1_1_16.jpg", "4709322400_2_4_16.jpg"],
+    "variants":[
+      { "size":"42", "color":"black"},
+      { "size":"42", "color":"brown"},
+      { "size":"42", "color":"blue"},
+      { "size":"44", "color":"black"},
+      { "size":"44", "color":"brown"},
+      { "size":"44", "color":"blue"},
+      { "size":"43", "color":"black"},
+      { "size":"43", "color":"brown"},
+      { "size":"43", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Brown suede ankle boots with buckle",
+    "description": "Brown suede ankle boots with side buckle detail and inner zip to make them easier to put on. Leather lining and insole.",
+    "pictures": ["1155021709_6_1_16.jpg", "1155021709_2_2_16.jpg", "1155021709_2_1_16.jpg", "1155021709_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Tan soft split suede leather court shoes",
+    "description": "Soft leather high heel court shoes with wood lined heel and leather insoles.",
+    "pictures": ["6598321709_2_8_16.jpg", "6598321709_2_7_16.jpg", "6598321709_2_1_16.jpg", "6598321709_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Blue suede court shoes",
+    "description": "Soft blue split suede leather court shoes featuring wood-lined heels and leather insoles.",
+    "pictures": ["6542321400_2_8_16.jpg", "6542321400_2_4_16.jpg", "6542321400_2_2_16.jpg", "6542321400_2_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Ecco",
+    "country": "England",
+    "gender": "women",
+    "category": "shoes",
+    "name": "White leather plimsolls with black heel tab",
+    "description": "Combined nappa leather and split suede plimsolls with a contrast black nappa leather heel tab. Featuring contrast caramel rubber soles, combined leather and fabric lining and leather insoles.",
+    "pictures": ["1665021001_2_1_16.jpg", "1665021001_1_1_16.jpg", "1665021001_2_2_16.jpg", "1665021001_2_3_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"white"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"white"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"white"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Italy",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Beige trainers with animal print stripes",
+    "description": "Combined split suede and nappa leather trainers with embossed animal print side stripe and heel details. Removable thermoformed leather insole with embossed logo. Customised extra lightweight chunky Eva sole.",
+    "pictures": ["1658021002_2_7_16.jpg", "1658021002_2_6_16.jpg", "1658021002_2_1_16.jpg", "1658021002_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"beige"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"beige"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"beige"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "ZARA",
+    "country": "Italy",
+    "gender": "women",
+    "category": "shoes",
+    "name": "White leather trainers with chunky soles",
+    "description": "Trainers made of cowhide leather with a nappa leather finish. Featuring different pieces, a leather animal print detail on the heel cap, leather insoles and trims and rubber soles.",
+    "pictures": ["1635021001_2_7_16.jpg", "1635021001_2_4_16.jpg", "1635021001_2_2_16.jpg", "1635021001_2_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"white"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"white"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"white"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Black animal print leather ankle boots",
+    "description": "Leather ankle boots with an animal print finish and wood-lined heels. Featuring zip fastening and leather lining and insoles.",
+    "pictures": ["1180021800_6_1_16.jpg", "1180021800_2_3_16.jpg", "1180021800_2_2_16.jpg", "1180021800_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Black leather heeled boots",
+    "description": "Tall high-heel boots made of cowhide leather with a nappa leather finish. Featuring leather lining and insoles and non-slip soles.",
+    "pictures": ["1030021800_2_8_16.jpg", "1030021800_2_4_16.jpg", "1030021800_2_2_16.jpg", "1030021800_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Black leather heeled boots",
+    "description": "Tall high-heel boots made of cowhide leather with a nappa leather finish. Featuring leather lining and insoles and non-slip soles.",
+    "pictures": ["1030021800_2_8_16.jpg", "1030021800_2_4_16.jpg", "1030021800_2_2_16.jpg", "1030021800_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "Animal print flatform plimsolls",
+    "description": "Leather plimsolls with animal print. Featuring leather insoles with a removable thermoformed insert and extra lightweight chunky EVA soles with logo.",
+    "pictures": ["1652021201_2_1_16.jpg", "1652021201_1_1_16.jpg", "1652021201_2_3_16.jpg", "1652021201_2_4_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"black"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"black"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"black"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
+    ]
+  },
+
+  {
+    "brand": "Massimo Duti",
+    "country": "Spain",
+    "gender": "women",
+    "category": "shoes",
+    "name": "White contrast leather trainers",
+    "description": "White nappa leather trainers with contrast pastel colour details. Featuring a contrast nappa leather heel tab, combined leather and fabric lining, leather insoles and white lightweight rubber soles with a contrast pastel colour welt detail.",
+    "pictures": ["1655021202_2_8_16.jpg", "1655021202_2_2_16.jpg", "1655021202_2_1_16.jpg", "1655021202_1_1_16.jpg"],
+    "variants":[
+      { "size":"37", "color":"white"},
+      { "size":"37", "color":"brown"},
+      { "size":"37", "color":"blue"},
+      { "size":"38", "color":"white"},
+      { "size":"38", "color":"brown"},
+      { "size":"38", "color":"blue"},
+      { "size":"39", "color":"white"},
+      { "size":"39", "color":"brown"},
+      { "size":"39", "color":"blue"}
     ]
   }
 ]

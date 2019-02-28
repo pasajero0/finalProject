@@ -39,7 +39,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // before all //
-
+//app.use(express.static(__dirname + '/images'));
+app.use('/product-images', express.static(__dirname + '/images/products'));
 app.use((req, res, next) => {
   next();
 });

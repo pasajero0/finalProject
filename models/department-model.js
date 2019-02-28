@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const departmentSchema = mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
+  _id: String,
   slug: {
     type: String,
     required:[true, 'The slug is required'],
