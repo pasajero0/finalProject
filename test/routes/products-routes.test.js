@@ -16,20 +16,40 @@ describe('API Integration Tests', () => {
 
   describe('GET /products', () => {
 
-    it('should fail on missing form fields', (done) => {
+    it('should succeed on products request', (done) => {
       request(app)
         .get('/products')
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.all.keys(['data', 'message', 'success']);
-          expect(res.body.data).to.have.all.keys(['records', 'count', 'page', 'perPage', 'pagesTotal']);
+          expect(res.body.data).to.have.all.keys(['records', 'count', 'page', 'perPage', 'pagesTotal', 'filters']);
           expect(res.body.data.count).to.be.a('number');
           expect(res.body.data.page).to.be.a('number');
           expect(res.body.data.perPage).to.be.a('number');
           expect(res.body.data.pagesTotal).to.be.a('number');
           expect(res.body.data.records).to.be.an('array');
           done();
+        });
+    });
+  });
+
+  describe('GET /products/:slug', () => {
+
+    it('should succeed on product request', (done) => {
+      request(app)
+        .get('/products')
+        .end((err, res) => {
+          expect(res.body.data.records).to.be.an('array');
+          const product = res.body.data.records[0];
+          request(app)
+            .get(`/products/${product.slug}`)
+            .end((err, res) => {
+              expect(res.statusCode).to.equal(200);
+              expect(res.body).to.be.an('object');
+              expect(res.body).to.have.all.keys(['data', 'message', 'success']);
+              done();
+            });
         });
     });
   });

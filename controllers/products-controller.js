@@ -34,7 +34,6 @@ exports.find = function getAllProducts(req, res, next) {
         data.filters.product = { departmentIds: dep._id };
       };
       return Product.find(data.filters.product).skip(data.perPage * ( data.page - 1 )).limit(data.perPage);
-      //.project({ item: 1, status: 1, 'size.uom': 1 })
     })
     .then((records) => {
       data.records = records;
@@ -44,6 +43,29 @@ exports.find = function getAllProducts(req, res, next) {
       data.count = count;
       data.pagesTotal = Math.ceil(count / data.perPage);
       res.status(200).json(response(data));
+      next();
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+      next();
+    });
+};
+
+/**
+ * Get all products
+ * @param req {object}
+ * @param res {object}
+ * @param next {Function}
+ */
+exports.findBySlug = function getProductBySlug(req, res, next) {
+
+     Product.find({ slug: req.params.slug })
+    .then((result) => {
+      if (result.length > 0) {
+        res.status(200).json(response(result[0]));
+      } else {
+        res.status(404).json(response({}, 'No valid entry found', 1));
+      }
       next();
     })
     .catch((err) => {

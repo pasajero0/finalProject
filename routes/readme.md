@@ -279,6 +279,51 @@ _отдает:_
     "success": true
 }
 ```
+---
+
+###GET /products/:slug
+
+получает конкретный продукт по слагу
+
+_отдает:_
+
+**200** ответ
+
+```javascript
+{
+    "data": {
+        "prices": {
+            "retail": 319,
+            "sale": 87
+        },
+        "departmentsIds": [],
+        "pictures": [
+            "1635021001_2_7_16.jpg",
+            "1635021001_2_4_16.jpg",
+            "1635021001_2_2_16.jpg",
+            "1635021001_2_1_16.jpg"
+        ],
+        "brand": "ZARA",
+        "country": "Italy",
+        "name": "White leather trainers with chunky soles",
+        "description": "Trainers made of cowhide leather with a nappa leather finish. Featuring different pieces, a leather animal print detail on the heel cap, leather insoles and trims and rubber soles.",
+        "slug": "white-leather-trainers-with-chunky-soles-345681",
+        "departmentIds": [
+            "608",
+            "611"
+        ],
+        "added": "Thu, 28 Feb 2019 16:22:05 GMT",
+        "isBrandNew": true,
+        "isAvailable": true,
+        "isOnSale": false,
+        "rate": 2,
+        "id": "undefined"
+    },
+    "message": "",
+    "success": true
+}
+```
+
 
 ---
 
