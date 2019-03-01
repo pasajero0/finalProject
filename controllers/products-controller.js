@@ -1,6 +1,6 @@
 const { response } = require('../lib/response');
 const Product = require('../models/product-model');
-
+const Department = require('../models/department-model');
 /**
  * Get all products
  * @param req {object}
@@ -10,14 +10,35 @@ const Product = require('../models/product-model');
 exports.find = function getAllProducts(req, res, next) {
   const data = {
     perPage: parseInt(req.query.perPage, 10) || 10,
-    page: parseInt(req.query.page, 10) || 1
+    page: parseInt(req.query.page, 10) || 1,
+    records: [],
+    count: 0,
+    pagesTotal: 0,
+    filters: {}
   };
-
-  Product.find().skip(data.perPage * ( data.page - 1 )).limit(data.perPage)
-  //.project({ item: 1, status: 1, 'size.uom': 1 })
+  Promise.resolve()
+    .then(() => {
+      // if department is requested add to filter
+      if (req.query.department) {
+        return Department.findOne({ slug: req.query.department });
+      }
+      return Promise.resolve({});
+    })
+    .then((dep) =>{
+      if (dep === null) {
+        res.status(200).json(response(data));
+        next();
+        return null;
+      }
+      if( dep._id ){
+        data.filters.product = { departmentIds: dep._id };
+      };
+      return Product.find(data.filters.product).skip(data.perPage * ( data.page - 1 )).limit(data.perPage);
+      //.project({ item: 1, status: 1, 'size.uom': 1 })
+    })
     .then((records) => {
       data.records = records;
-      return Product.find().count();
+      return Product.find(data.filters.product).countDocuments();
     })
     .then((count) => {
       data.count = count;
