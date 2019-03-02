@@ -1,0 +1,144 @@
+{"data": {
+    "records": [
+      {
+        "name": "man",
+        "slug": "man",
+        "parent": 0,
+        "position": 0,
+        "id": "606"
+      },
+      {
+        "name": "clothing",
+        "slug": "man-clothing",
+        "parent": 606,
+        "position": 0,
+        "filters": {
+          "country": [
+            "Spain",
+            "Italy"
+          ],
+          "brand": [
+            "Massimo Duti",
+            "ZARA",
+            "Pull&Bear"
+          ],
+          "size": [
+            "42",
+            "44",
+            "43"
+          ],
+          "color": [
+            "black",
+            "brown",
+            "blue"
+          ]
+        },
+        "id": "607"
+      },
+      {
+        "name": "women",
+        "slug": "women",
+        "parent": 0,
+        "position": 0,
+        "id": "608"
+      },
+      {
+        "name": "clothing",
+        "slug": "women-clothing",
+        "parent": 608,
+        "position": 0,
+        "filters": {
+          "country": [
+            "Italy",
+            "Spain"
+          ],
+          "brand": [
+            "ZARA",
+            "Massimo Duti",
+            "Pull&Bear",
+            "Bershka"
+          ],
+          "size": [
+            "42",
+            "44",
+            "43",
+            "38",
+            "40"
+          ],
+          "color": [
+            "black",
+            "brown",
+            "blue",
+            "white",
+            "grey"
+          ]
+        },
+        "id": "609"
+      },
+      {
+        "name": "shoes",
+        "slug": "man-shoes",
+        "parent": 606,
+        "position": 0,
+        "filters": {
+          "country": [
+            "Spain",
+            "Italy",
+            "England"
+          ],
+          "brand": [
+            "Massimo Duti",
+            "ZARA",
+            "Pull&Bear",
+            "Ecco"
+          ],
+          "size": [
+            "42",
+            "44",
+            "43"
+          ],
+          "color": [
+            "black",
+            "brown",
+            "blue",
+            "white"
+          ]
+        },
+        "id": "610"
+      },
+      {
+        "name": "shoes",
+        "slug": "women-shoes",
+        "parent": 608,
+        "position": 0,
+        "filters": {
+          "country": [
+            "Spain",
+            "England",
+            "Italy"
+          ],
+          "brand": [
+            "Massimo Duti",
+            "Ecco",
+            "ZARA"
+          ],
+          "size": [
+            "37",
+            "38",
+            "39"
+          ],
+          "color": [
+            "black",
+            "brown",
+            "blue",
+            "white",
+            "beige"
+          ]
+        },
+        "id": "611"
+      }
+    ]
+  },
+  "message": "",
+  "success": true
+}

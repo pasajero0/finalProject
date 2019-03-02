@@ -14,7 +14,7 @@ const departmentSchema = mongoose.Schema({
     type: String
   },
   parent: {
-    type: Number
+    type: String
   },
   position: {
     type: Number
