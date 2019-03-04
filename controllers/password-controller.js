@@ -65,35 +65,29 @@ exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMa
  * @param next {Function}
  */
 exports.saveNewPassword = function findUserByEmailAndSaveNewPassword(req, res, next) {
-  if (!req.body.email || !req.body.token || !req.body.password) {
+  if ((!req.body.email && !req.body.token ) || !req.body.password) {
     res.status(200).json(response({}, 'Required data is missing', 1));
     return next();
   }
-  Customer.find({ email: req.body.email })
+
+  const where = req.body.token
+    ? {
+      reset_password_token: req.body.token,
+      reset_password_token_time: { $gt: new Date().getTime() }
+    }
+    : { email: req.body.email };
+
+  const error = req.body.token ? 'Invalid or outdated token' : 'User not found';
+
+  Customer.find(where)
     .then((found) => {
       if (found.length === 0) {
-        res.status(200).json(response({}, 'User not found', 1));
+        res.status(200).json(response({}, error, 1));
         return next();
       }
       const customer = new Customer(found[0]);
-      const credential = hasCredentialsToSaveNewPassword(
-        customer.reset_password_token,
-        customer.reset_password_token_time,
-        req.body.token,
-        req.body.email,
-        req.user ? req.user.email : ''
-      );
-
-      if ( credential === false ) {
-        res.status(200).json(response({}, 'Token is invalid or outdated', 1));
-        return next();
-      }
-
-      customer.reset_password_token_time = undefined;
-      customer.reset_password_token = undefined;
       customer.password = req.body.password;
-
-      customer.save()
+      return customer.save()
         .then(() => {
           res.status(200).json(response({}, 'New password has been saved', 0));
           return next();
@@ -104,5 +98,3 @@ exports.saveNewPassword = function findUserByEmailAndSaveNewPassword(req, res, n
       next();
     });
 };
-
-

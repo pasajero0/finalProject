@@ -74,7 +74,7 @@ describe('API Integration Tests', () => {
     it('should failed saving if token is invalid', (done) => {
       request(app)
         .post('/password/save')
-        .send({ token: 'invalid_token', email: newCustomer.email, password: 'new_password' })
+        .send({ token: 'invalid_token', password: 'new_password' })
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.an('object');
@@ -90,7 +90,7 @@ describe('API Integration Tests', () => {
         .then((found) => {
           request(app)
             .post('/password/save')
-            .send({ token: found[0].reset_password_token, email: newCustomer.email, password: 'new3passwor' })
+            .send({ token: found[0].reset_password_token, password: 'new3passwor' })
             .end((err, res) => {
               expect(res.statusCode).to.equal(200);
               expect(res.body).to.be.an('object');
