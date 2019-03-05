@@ -15,6 +15,7 @@ const customersRoutes = require('./routes/customers-routes');
 const productsRoutes = require('./routes/products-routes');
 const passwordRoutes = require('./routes/password-routes');
 const departmentsRoutes = require('./routes/departments-routes');
+
 const app = express();
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
@@ -39,8 +40,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // before all //
-//app.use(express.static(__dirname + '/images'));
+
 app.use('/product-images', express.static(__dirname + '/images/products'));
+
 app.use((req, res, next) => {
   next();
 });

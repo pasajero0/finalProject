@@ -76,19 +76,19 @@ MongoClient.connect(url, { useNewUrlParser: true })
       addDepartmentFilter(`${p.gender}${p.category}`, 'country', p.country);
       addDepartmentFilter(`${p.gender}${p.category}`, 'brand', p.brand);
 
-      if( !newProduct.isBrandNew ){
+      if (!newProduct.isBrandNew) {
         newProduct.isBrandNew = Math.random() >= 0.5;
       }
-      if(!newProduct.isAvailable){
+      if (!newProduct.isAvailable) {
         newProduct.isAvailable = Math.random() >= 0.5;
       }
-      if(!newProduct.isOnSale){
+      if (!newProduct.isOnSale) {
         newProduct.isOnSale = Math.random() >= 0.5;
       }
-      if(!newProduct.rate){
+      if (!newProduct.rate) {
         newProduct.rate = Math.floor(Math.random() * Math.floor(5));
       }
-      if(!newProduct.prices){
+      if (!newProduct.prices) {
         const price = 20 + Math.floor(Math.random() * Math.floor(500));
         newProduct.prices = {
           retail: price,
@@ -102,21 +102,24 @@ MongoClient.connect(url, { useNewUrlParser: true })
 
       products.push(newProduct);
 
-      p.variants.forEach((v) => {
-        counters.productVariant += 1;
-        variants.push({
-          ...v,
-          inStock: Math.floor(Math.random() * Math.floor(100)),
-          _id: counters.productVariant.toString(),
-          productId: counters.product.toString()
-        });
+      if (p.variants && p.variants.length > 0) {
+        p.variants.forEach((v) => {
+          counters.productVariant += 1;
+          variants.push({
+            ...v,
+            inStock: Math.floor(Math.random() * Math.floor(100)),
+            _id: counters.productVariant.toString(),
+            productId: counters.product.toString()
+          });
 
-        Object.keys(v).forEach((filter) => {
-          if (filter !== 'inStock') {
-            addDepartmentFilter(`${p.gender}${p.category}`, filter, v[filter]);
-          }
+          Object.keys(v).forEach((filter) => {
+            if (filter !== 'inStock') {
+              addDepartmentFilter(`${p.gender}${p.category}`, filter, v[filter]);
+            }
+          });
         });
-      });
+      }
+
     });
 
     const promises = res.map((v) => {
