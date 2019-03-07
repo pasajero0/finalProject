@@ -8,7 +8,7 @@ router.get('/', customerController.find);
 
 router.post('/', customerController.add);
 
-router.put('/:id', customerController.update);
+//router.put('/:id', customerController.update);
 
 router.post('/auth', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
@@ -37,6 +37,10 @@ router.post('/auth', (req, res, next) => {
 router.get('/profile',
   require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
   customerController.profile);
+
+router.put('/profile',
+  require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
+  customerController.updateProfile);
 
 router.get('/logout', (req, res) => {
   req.logout();

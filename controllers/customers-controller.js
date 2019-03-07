@@ -85,6 +85,43 @@ exports.find = function getAllCustomers(req, res, next) {
       next();
     });
 };
+
+function collectData(src, keys) {
+  const result = {};
+  keys.forEach((key) => {
+    if (typeof(src[key]) !== 'undefined') {
+      result[key] = src[key];
+    }
+  });
+  return result;
+}
+
+/**
+ * Update profile
+ * @param req {object}
+ * @param res {object}
+ * @param next {Function}
+ */
+exports.updateProfile = function updateCustomerData(req, res, next) {
+  const data = collectData(
+    req.body,
+    ['first_name', 'last_name', 'city', 'zip', 'address', 'phone']
+  );
+  Customer.updateOne({ _id: req.user.id }, { $set: data })
+    .then((result) => {
+      if (result) {
+        res.status(200).json(response(data));
+      } else {
+        res.status(404).json(response({}, 'No valid entry found', 1));
+      }
+      next();
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+      next();
+    });
+
+};
 /**
  * Update customer data
  * @param req {object}

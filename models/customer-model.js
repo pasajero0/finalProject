@@ -23,7 +23,7 @@ const customerSchema = mongoose.Schema({
           cb(false);
         } else {
           const customer = mongoose.model('Customer', customerSchema);
-          customer.find({email: v, _id: {"$ne": data._id}})
+          customer.find({email: v, _id: { $ne: data._id } })
             .then((res) => {
               cb(res.length === 0, 'This e-mail already registered');
             })
@@ -52,6 +52,18 @@ const customerSchema = mongoose.Schema({
   last_name: {
     type: String,
     minlength: [2, 'Last name has to be longer']
+  },
+  city: {
+    type: String
+  },
+  zip: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  phone: {
+    type: String
   },
   reset_password_token: {
     type: String

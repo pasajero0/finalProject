@@ -5,20 +5,6 @@ const Customer = require('../models/customer-model');
 const { mail } = require('../services/mail');
 
 /**
- * Check if current user has credentials to save new password
- * @param inDbToken {string}
- * @param inDbTokenTime {number}
- * @param reqToken {string}
- * @param reqEmail {string}
- * @param userEmail {string}
- * @returns {*|boolean}
- */
-function hasCredentialsToSaveNewPassword(inDbToken, inDbTokenTime, reqToken, reqEmail, userEmail) {
-  return (!!inDbToken && inDbToken === reqToken && inDbTokenTime > (new Date().getTime()))
-    || (!!reqEmail && reqEmail === userEmail);
-}
-
-/**
  * Send email to the customer with restore password link
  * @param req {object}
  * @param res {object}
@@ -65,7 +51,7 @@ exports.sendRestorePasswordMail = function findUserByEmailAndSendResetPasswordMa
  * @param next {Function}
  */
 exports.saveNewPassword = function findUserByEmailAndSaveNewPassword(req, res, next) {
-  if ((!req.body.email && !req.body.token ) || !req.body.password) {
+  if (((!req.body.email || req.body.email !== req.user.email ) && !req.body.token ) || !req.body.password) {
     res.status(200).json(response({}, 'Required data is missing', 1));
     return next();
   }

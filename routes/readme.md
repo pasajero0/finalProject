@@ -136,7 +136,39 @@ _отдает:_
     "success": true
 }
    ```
+---
 
+###PUT /customers/profile
+
+обновляет данные пользователя (кроме имейла и пароля)
+
+_ожидает:_ 
+```javascript
+{ 
+  first_name, last_name, city, zip, address, phone
+}
+```
+
+**404** ответ 
+для незалогиненного посетителя
+
+**200** ответ
+для залогиненного посетителя
+
+```javascript
+{
+    "data": {
+      first_name, 
+      last_name, 
+      city, 
+      zip, 
+      address, 
+      phone
+    },
+    "message": "",
+    "success": true
+}
+   ```
 ---
 
 ###GET /customers/logout

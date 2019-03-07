@@ -245,6 +245,23 @@ describe('API Integration Tests', () => {
           });
       });
     });
+
+    it('should update user data', (done) => {
+
+      authenticatedRequest(validAuthData, (request) => {
+        request
+          .put('/customers/profile')
+          .send({ phone : '123456' })
+          .end((err, res) => {
+            expect(res.statusCode).to.equal(200);
+            expect(res.body).to.be.an('object');
+            expect(res.body).to.have.all.keys(['data', 'message', 'success']);
+            expect(res.body.success).to.be.a('boolean').to.be.true;
+            expect(res.body.message).to.be.a('string').that.is.empty;
+            done();
+          });
+      });
+    });
   });
 
   after((done) => {
