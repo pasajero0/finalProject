@@ -1,25 +1,9 @@
 const mongoose = require('mongoose');
 const uniqid = require('uniqid');
 const { response } = require('../lib/response');
+const { mongooseErrorToResponse } = require('../lib/mongoose-error-to-response');
 const Customer = require('../models/customer-model');
 const { mail } = require('../services/mail');
-
-/**
- * Convert mongoose error message to expected by front end
- * @param src
- */
-function mongooseErrorToResponse(src) {
-  const data = {};
-  if (src.errors) {
-    const keys = Object.keys(src.errors);
-    if (keys.length > 0) {
-      keys.forEach((v) => {
-        data[v] = src.errors[v].message;
-      });
-    }
-  }
-  return response(data, src.message, 1);
-}
 
 /**
  * Add new customer to database

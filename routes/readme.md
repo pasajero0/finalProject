@@ -356,7 +356,6 @@ _отдает:_
 }
 ```
 
-
 ---
 
 ###GET /departments
@@ -390,5 +389,80 @@ _отдает:_
     "success": true
 }
 ```
+
+---
+
+###POST /orders/add
+
+добавляет заказ
+
+_ожидает:_ 
+```javascript
+{ 
+  email: 'email@example.com',
+  first_name: 'Bill',
+  last_name: 'Clinton',
+  city: 'Washington',
+  zip: '00234',
+  address: 'Washington St. 32',
+  phone: '122345678',
+  card_number: '1234567898762345',
+  products: [
+    { name: 'product name', picture: 'image src', slug: '123456', price: 9876, quantity: 3 }
+  ],
+  total: 222,
+  count: 3,
+}
+```
+**200** неуспешный ответ
+
+
+```javascript
+{
+    "data": {
+        "email": "E-mail is required"
+    },
+    "message": "Order validation failed: email: E-mail is required",
+    "success": false
+}
+```
+
+**200** успешный ответ
+
+```javascript
+{
+    "data": {
+        "email": "test2@test.com",
+        "first_name": "Jognn",
+        "last_name": "smith",
+        "zip": "02147",
+        "city": "kyiv",
+        "phone": "8888883",
+        "products": [
+            {
+                "_id": "5c82ab4cb9845a10a0b1d8b2",
+                "name": "Travel Suit Slim Fit Striped Wool Blazer",
+                "price": 5,
+                "quantity": 3,
+                "slug": "travel-suit-slim-fit-striped-wool-blazer-345687"
+            }
+        ],
+        "count": 2,
+        "total": 33,
+        "card_number": "333333333333",
+        "address": "foo  st",
+        "stages": {
+            "_id": "5c82ab4cb9845a10a0b1d8b3",
+            "new": 1552067404113,
+            "payed": 1552067404113
+        },
+        "number": "0000012394",
+        "creation_date": "Fri, 08 Mar 2019 17:50:04 GMT",
+        "id": "5c82ab4cb9845a10a0b1d8b1"
+    },
+    "message": "The order has been placed",
+    "success": true
+}
+   ```
 
 

@@ -15,6 +15,7 @@ const customersRoutes = require('./routes/customers-routes');
 const productsRoutes = require('./routes/products-routes');
 const passwordRoutes = require('./routes/password-routes');
 const departmentsRoutes = require('./routes/departments-routes');
+const ordersRoutes = require('./routes/orders-routes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -22,6 +23,7 @@ const hostname = '127.0.0.1';
 
 const { connect } = require( './config/mongoose' );
 
+process.on('unhandledRejection', () => {});
 // middlewares //
 
 app.use(morgan('combined'));
@@ -50,6 +52,7 @@ app.use((req, res, next) => {
 app.use('/customers', customersRoutes);
 app.use('/departments', departmentsRoutes);
 app.use('/products', productsRoutes);
+app.use('/orders', ordersRoutes);
 
 app.use('/password', passwordRoutes);
 // after all //
