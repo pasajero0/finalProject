@@ -35,11 +35,11 @@ router.post('/auth', (req, res, next) => {
 });
 
 router.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
+  //require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
   customerController.profile);
 
 router.put('/profile',
-  require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
+  //require('connect-ensure-login').ensureLoggedIn('/customers/auth'),
   customerController.updateProfile);
 
 router.get('/logout', (req, res) => {

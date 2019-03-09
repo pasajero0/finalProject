@@ -10,6 +10,7 @@ const passport = require('passport');
 const FileStore = require('session-file-store')(session);
 const path = require('path');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 const customersRoutes = require('./routes/customers-routes');
 const productsRoutes = require('./routes/products-routes');
@@ -25,12 +26,20 @@ const { connect } = require( './config/mongoose' );
 
 process.on('unhandledRejection', () => {});
 // middlewares //
-
+/*
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST');
   next();
 });
+*/
+
+app.use(cors({
+  origin:['http://localhost:3000'],
+  methods:['GET','POST', 'PUT'],
+  credentials: true // enable set cookie
+}));
 
 app.use(morgan('combined'));
 app.use(flash());
@@ -42,7 +51,11 @@ app.use(session({
   store: new FileStore({retries: 0}),
   secret: process.env.SESSION_SECRET_KEY,
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie:{
+    secure: false,
+    httpOnly: false
+  }
 }));
 app.use(passport.initialize());
 app.use(passport.session());
