@@ -103,7 +103,18 @@ _отдает:_
 
 ```javascript
 {
-    "data": {},
+    "data": {
+              "email": "test2@test.com",
+              "number": "0000000350",
+              "creation_date": "Thu, 07 Mar 2019 20:32:22 GMT",
+              "address": null,
+              "city": "kyiv",
+              "last_name": "smith",
+              "phone": "8888883",
+              "zip": "02147",
+              "first_name": "Jognn",
+              "id": "5c817fd5a0900b3d449f06ca"
+    },
     "message": "You have been logged in",
     "success": true
 }
@@ -124,13 +135,16 @@ _отдает:_
 ```javascript
 {
     "data": {
-        "email": "johnsmith35@gmail.com",
-        "login": "test5",
-        "first_name": "john",
+        "email": "test2@test.com",
+        "number": "0000000350",
+        "creation_date": "Thu, 07 Mar 2019 20:32:22 GMT",
+        "address": null,
+        "city": "kyiv",
         "last_name": "smith",
-        "creation_date": "Mon, 04 Feb 2019 21:07:35 GMT",
-        "id": "5c58a9979a959b5f2c2fac56",
-        "number": "00000003"
+        "phone": "8888883",
+        "zip": "02147",
+        "first_name": "Jognn",
+        "id": "5c817fd5a0900b3d449f06ca"
     },
     "message": "",
     "success": true
