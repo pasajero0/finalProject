@@ -26,18 +26,17 @@ const { connect } = require( './config/mongoose' );
 
 process.on('unhandledRejection', () => {});
 // middlewares //
+
 /*
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST');
+app.use((req, res, next) =>{
+  req.headers['if-none-match'] = 'no-match-for-this';
   next();
 });
 */
 
 app.use(cors({
   origin:['http://localhost:3000'],
-  methods:['GET','POST', 'PUT'],
+  methods:['POST', 'PUT'],
   credentials: true // enable set cookie
 }));
 
