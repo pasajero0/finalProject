@@ -1,8 +1,15 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-/tmpпше згдд
+/tmp
+
 # dependencies
-.env
 .idea
+
+.env
+.env.local
+.env.development
+.env.development.local
+
+
 /.idea
 /node_modules
 /.env

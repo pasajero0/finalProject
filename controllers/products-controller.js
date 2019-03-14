@@ -58,7 +58,6 @@ exports.find = function getAllProducts(req, res, next) {
  * @param next {Function}
  */
 exports.findBySlug = function getProductBySlug(req, res, next) {
-
      Product.find({ slug: req.params.slug })
     .then((result) => {
       if (result.length > 0) {

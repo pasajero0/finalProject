@@ -24,7 +24,7 @@ const hostname = '127.0.0.1';
 
 const { connect } = require( './config/mongoose' );
 
-process.on('unhandledRejection', () => {});
+//process.on('unhandledRejection', () => {});
 // middlewares //
 
 /*
@@ -32,7 +32,12 @@ app.use((req, res, next) =>{
   req.headers['if-none-match'] = 'no-match-for-this';
   next();
 });
+
+//app.disable('etag');
+//app.set('etag', false);
 */
+
+
 
 app.use(cors({
   origin:['http://localhost:3000'],
@@ -60,10 +65,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // before all //
-
-app.use('/product-images', express.static(__dirname + '/images/products'));
-
-app.use((req, res, next) => {
+app.get('/*', (req, res, next) => {
+  res.setHeader('Last-Modified', (new Date()).toUTCString());
   next();
 });
 
@@ -71,13 +74,9 @@ app.use('/customers', customersRoutes);
 app.use('/departments', departmentsRoutes);
 app.use('/products', productsRoutes);
 app.use('/orders', ordersRoutes);
-
 app.use('/password', passwordRoutes);
-// after all //
+app.use('/product-images', express.static(__dirname + '/images/products'));
 
-app.use((req, res, next) => {
-  next();
-});
 
 connect()
   .then(() => {
