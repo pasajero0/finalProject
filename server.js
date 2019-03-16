@@ -17,6 +17,7 @@ const productsRoutes = require('./routes/products-routes');
 const passwordRoutes = require('./routes/password-routes');
 const departmentsRoutes = require('./routes/departments-routes');
 const ordersRoutes = require('./routes/orders-routes');
+const appRoutes = require('./routes/app-routes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -76,7 +77,7 @@ app.use('/products', productsRoutes);
 app.use('/orders', ordersRoutes);
 app.use('/password', passwordRoutes);
 app.use('/product-images', express.static(__dirname + '/images/products'));
-
+app.use('/app', appRoutes);
 
 connect()
   .then(() => {
