@@ -480,3 +480,63 @@ _ожидает:_
    ```
 
 
+
+
+
+
+---
+
+###GET /orders/history
+
+выводит постранично все заказы пользователя 
+
+**200** успешный ответ
+
+```javascript
+{
+    "data": {
+        "perPage": 10,
+        "page": 1,
+        "records": [
+            {
+                "email": "test2@test.com",
+                "first_name": "Jognn",
+                "last_name": "smith",
+                "zip": "02147",
+                "city": "kyiv",
+                "phone": "8888883",
+                "products": [
+                    {
+                        "_id": "5c82adc8e4291b1f30443891",
+                        "name": "Travel Suit Slim Fit Striped Wool Blazer",
+                        "price": 5,
+                        "quantity": 1,
+                        "slug": "travel-suit-slim-fit-striped-wool-blazer-345687"
+                    }
+                ],
+                "count": 1,
+                "total": 5,
+                "card_number": "333333333333",
+                "address": "foo  st",
+                "stages": {
+                    "_id": "5c82adc8e4291b1f30443892",
+                    "new": 1552068040416,
+                    "payed": 1552068040416
+                },
+                "number": "0000012397",
+                "creation_date": "Fri, 08 Mar 2019 18:00:40 GMT",
+                "id": "5c82adc8e4291b1f30443890"
+            }...
+        ],
+        "count": 7,
+        "pagesTotal": 1,
+        "filters": {}
+    },
+    "message": "",
+    "success": true
+}
+   ```
+
+
+
+

@@ -91,10 +91,8 @@ exports.updateProfile = function updateCustomerData(req, res, next) {
     req.body,
     ['first_name', 'last_name', 'city', 'zip', 'address', 'phone']
   );
-  console.log(data);
   Customer.updateOne({ _id: req.user.id }, { $set: data })
     .then((result) => {
-    console.log(result);
       if (result) {
         res.status(200).json(response(data));
       } else {

@@ -11,8 +11,38 @@ const { mail } = require('../services/mail');
  * @param res {object}
  * @param next {Function}
  */
-exports.find = function getAllOrders(req, res, next) {
+exports.history = function getAllOrders(req, res, next) {
+  const data = {
+    perPage: parseInt(req.query.perPage, 10) || 10,
+    page: parseInt(req.query.page, 10) || 1,
+    records: [],
+    count: 0,
+    pagesTotal: 0,
+    filters: {}
+  };
 
+
+  if (!req.user) {
+    res.status(400).json(response({}, 'Not found', 1));
+    return next();
+  }
+  const {email} = req.user;
+
+  Order.find({ email }).skip(data.perPage * ( data.page - 1 )).limit(data.perPage)
+    .then((records) => {
+      data.records = records;
+      return Order.find({ email }).countDocuments();
+    })
+    .then((count) => {
+      data.count = count;
+      data.pagesTotal = Math.ceil(count / data.perPage);
+      res.status(200).json(response(data));
+      next();
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+      next();
+    });
 };
 
 
@@ -24,7 +54,7 @@ exports.find = function getAllOrders(req, res, next) {
  */
 exports.add = function addNewOrder(req, res, next) {
   // check product prices
-  if(!req.body.products || req.body.products.length === 0){
+  if (!req.body.products || req.body.products.length === 0) {
     res.status(200).json(response({}, 'Empty products list', 1));
     return next();
   }
@@ -45,7 +75,7 @@ exports.add = function addNewOrder(req, res, next) {
           info.quantity += parseInt(p.quantity);
           info.total += parseInt(p.quantity) * parseInt(p.price);
         });
-        if( parseInt(req.body.total) !== info.total || parseInt(req.body.count) !== info.quantity){
+        if (parseInt(req.body.total) !== info.total || parseInt(req.body.count) !== info.quantity) {
           res.status(200).json(response({}, 'Invalid order total or quantity', 1));
           return next();
         }
