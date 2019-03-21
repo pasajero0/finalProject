@@ -1,6 +1,8 @@
 const { response } = require('../lib/response');
 const Product = require('../models/product-model');
 const Department = require('../models/department-model');
+
+
 /**
  * Get all products
  * @param req {object}
@@ -14,7 +16,7 @@ exports.find = function getAllProducts(req, res, next) {
     records: [],
     count: 0,
     pagesTotal: 0,
-    filters: {}
+    filters: req.query.filters || {}
   };
   Promise.resolve()
     .then(() => {
@@ -24,15 +26,15 @@ exports.find = function getAllProducts(req, res, next) {
       }
       return Promise.resolve({});
     })
-    .then((dep) =>{
+    .then((dep) => {
       if (dep === null) {
         res.status(200).json(response(data));
         next();
         return null;
       }
-      if( dep._id ){
-        data.filters.product = { departmentIds: dep._id };
-      };
+      if (dep._id) {
+        data.filters.product = {...data.filters.product, departmentIds: dep._id };
+      }
       return Product.find(data.filters.product).skip(data.perPage * ( data.page - 1 )).limit(data.perPage);
     })
     .then((records) => {
@@ -51,6 +53,47 @@ exports.find = function getAllProducts(req, res, next) {
     });
 };
 
+exports.findOnSale = (req, res, next) => {
+  const filters = req.query.filters || {};
+  filters.product = filters.product || {};
+  exports.find({
+    ...req,
+    query: {
+      ...req.query,
+      filters: {
+        ...filters,
+        product:{
+          ...filters.product,
+          isAvailable: true,
+          isBrandNew: false,
+          isOnSale: true
+        }
+      }
+    }
+  }, res, next);
+};
+
+exports.findNew = (req, res, next) => {
+  const filters = req.query.filters || {};
+  filters.product = filters.product || {};
+  exports.find({
+    ...req,
+    query: {
+      ...req.query,
+      filters: {
+        ...filters,
+        product:{
+          ...filters.product,
+          isAvailable: true,
+          isBrandNew: true,
+          isOnSale: false
+        }
+      }
+    }
+  }, res, next);
+};
+
+
 /**
  * Get all products
  * @param req {object}
@@ -58,7 +101,7 @@ exports.find = function getAllProducts(req, res, next) {
  * @param next {Function}
  */
 exports.findBySlug = function getProductBySlug(req, res, next) {
-     Product.find({ slug: req.params.slug })
+  Product.find({ slug: req.params.slug })
     .then((result) => {
       if (result.length > 0) {
         res.status(200).json(response(result[0]));
