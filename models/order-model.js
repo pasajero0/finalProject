@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcrypt = require('bcryptjs');
 const Counter = require('./counter-model');
 
 const ProductSchema = mongoose.Schema({
@@ -126,11 +125,5 @@ function addOrderNumber(next){
 orderSchema.pre('save', addOrderNumber);
 
 orderSchema.pre('save', addCreatedDate);
-
-function comparePassword(candidatePassword) {
-  return bcrypt.compareSync(candidatePassword, this.password);
-}
-
-orderSchema.methods.comparePassword = comparePassword;
 
 module.exports = mongoose.model('Order', orderSchema);

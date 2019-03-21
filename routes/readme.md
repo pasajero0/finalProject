@@ -70,7 +70,7 @@ _отдает:_
 _ожидает:_ 
 ```javascript
 { 
-  password, login
+  password, login, remember
 }
 ```
 
