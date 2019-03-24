@@ -10,4 +10,6 @@ router.get('/new', productController.findNew);
 
 router.get('/:slug', productController.findBySlug);
 
+router.post('/search-hints', productController.searchHints);
+
 module.exports = router;
