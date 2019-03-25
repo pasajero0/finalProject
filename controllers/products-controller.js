@@ -18,8 +18,8 @@ exports.searchHints = (req, res, next) => {
   Promise.resolve()
     .then(() => {
       // if department is requested add to filter
-      if (req.query.department) {
-        return Department.findOne({ slug: req.query.department });
+      if (req.body.department) {
+        return Department.findOne({ slug: req.body.department });
       }
       return Promise.resolve({});
     })
