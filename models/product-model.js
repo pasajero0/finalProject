@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
+
+
 const productSchema = mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
+  _id: String,
   slug: {
     type: String,
     required:[true, 'The slug is required'],
@@ -58,7 +60,7 @@ const productSchema = mongoose.Schema({
 
 productSchema.options.toJSON = {
   transform: (doc, ret, options) => {
-    ret.id = ret._id+'';
+    ret.id = ret._id;
     ret.added = new Date(new Date().setTime(ret.added)).toUTCString();
     delete ret._id;
     delete ret.__v;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Counter = require('./counter-model');
 
 const productVariantSchema = mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
+  _id: String,
   added: {
     type: Number
   },
@@ -19,11 +19,11 @@ const productVariantSchema = mongoose.Schema({
   inStock: {
     type: Number
   }
-});
+}, { collection: 'productVariants' });
 
 productVariantSchema.options.toJSON = {
   transform: (doc, ret, options) => {
-    ret.id = ret._id+'';
+    ret.id = ret._id;
     ret.added = new Date(new Date().setTime(ret.added)).toUTCString();
     delete ret._id;
     delete ret.__v;

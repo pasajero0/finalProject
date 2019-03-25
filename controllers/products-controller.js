@@ -1,7 +1,7 @@
 const { response } = require('../lib/response');
 const Product = require('../models/product-model');
 const Department = require('../models/department-model');
-
+const ProductVariant = require('../models/product-variant-model');
 
 exports.searchHints = (req, res, next) => {
   const data = {
@@ -145,11 +145,18 @@ exports.findBySlug = function getProductBySlug(req, res, next) {
   Product.find({ slug: req.params.slug })
     .then((result) => {
       if (result.length > 0) {
-        res.status(200).json(response(result[0]));
+        ProductVariant.find({ productId: result[0]._id})
+          .then((found)=>{
+            const data = {...result[0].toObject()};
+            data.variants = found;
+            res.status(200).json(response(data));
+            next();
+          });
       } else {
         res.status(404).json(response({}, 'No valid entry found', 1));
+        next();
       }
-      next();
+
     })
     .catch((err) => {
       res.status(500).json({ error: err });
